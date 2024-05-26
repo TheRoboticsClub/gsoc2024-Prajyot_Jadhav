@@ -1,25 +1,24 @@
 ---
 layout: about
-title: about
+title: home
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: "Robotics-Academy: Migration to Gazebo Harmonic"
 
 profile:
-  align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  align: left
+  image: prof_pic.jpeg
+  image_circular: true # crops the image to make it circular
+  more_info: 
 
-news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+news: false # includes a list of news items
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hello! I'm Prajyot Jadhav. This website is a showcase of my work for [Google Summer of Code 2024](https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST) with [JdeRobot](https://jderobot.github.io/). I will be contributing to [Robotics-Academy](https://jderobot.github.io/RoboticsAcademy/). 
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+Robotics-Academy is a framework designed for learning robotics and computer vision through a collection of robot programming exercises. Currently, the platform offers 26 exercises and 11 prototype exercises that students can access through the RoboticsAcademy docker image (RADI), which comes pre-installed with all necessary dependencies. 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+The RADI is a key point of the platform and this project aims to improve it. One main component of the RADI is Gazebo. Currently, the RADI is based in Gazebo11 version, whose end of life (Sept., 2025) is getting closer. **The main goal of the project is to migrate the RADI to Gazebo Harmonic**. This migration will take form by having a couple of exercises running in ROS2 and Gazebo Harmoic with the new RADI.
+
+Thank you for your interest. Feel free to reach out to me if you have any questions, comments, or suggestions.
