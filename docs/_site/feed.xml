@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-06-03T13:15:22+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Community Bonding: May 20 ~ May 26</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-3/" rel="alternate" type="text/html" title="Community Bonding: May 20 ~ May 26" /><published>2024-05-28T22:10:16+05:30</published><updated>2024-05-28T22:10:16+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-3</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-3/"><![CDATA[<p>The initial project goal was migrating Robotics-Academy to Gazebo Fortress. However, considering that the end-of-life (EOL) for Gazebo Fortress is in September 2026, it was decided in the weekly meeting to migrate Robotics-Academy to Gazebo Harmonic, a LTS (Long-Term Support) version with an EOL in September 2028.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-06-06T16:28:30+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 1: May 27 ~ June 02</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-weel-1/" rel="alternate" type="text/html" title="Week 1: May 27 ~ June 02" /><published>2024-06-05T02:31:00+05:30</published><updated>2024-06-05T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-weel-1</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-weel-1/"><![CDATA[<p>The goal for this week was to modify the Dockerfiles to create a new RADI with Gazebo Harmonic and test it with xhost +.</p>
+
+<h4 id="objectives">Objectives</h4>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Create and test a new RADI with Gazebo Harmonic</li>
+</ul>
+
+<h4 id="issues-fixed">Issues Fixed</h4>
+
+<ul>
+  <li><a href="https://github.com/JdeRobot/RoboticsAcademy/issues/2540">https://github.com/JdeRobot/RoboticsAcademy/issues/2540</a></li>
+</ul>
+
+<h4 id="prs-created">PRs Created</h4>
+
+<ul>
+  <li><a href="https://github.com/JdeRobot/RoboticsAcademy/pull/2542">https://github.com/JdeRobot/RoboticsAcademy/pull/2542</a></li>
+</ul>
+
+<h4 id="work-done">Work Done</h4>
+
+<ul>
+  <li>Modified Dockerfiles to:
+    <ul>
+      <li>Replace Gazebo 11 with Gazebo Harmonic</li>
+      <li>Remove the installation of PX4 and MICRO-XRCE-DDS-AGENT</li>
+      <li>Remove the cloning of as2_platform_pixhawk and px4_msgs repositories</li>
+    </ul>
+  </li>
+  <li>Determined that the CustomRobots package has gazebo-ros and gazebo-ros2-control as dependencies</li>
+  <li>Checked out the installation of Gazebo 11 along with Gazebo Harmonic</li>
+</ul>
+
+<p>I encountered the following error while building an image from the modified Dockerfiles. Replacing Gazebo11 with Gazebo Harmonic caused installation failures for gazebo-ros2-control and gazebo-ros during rosdep install. These are the dependencies for the CustomRobots package, as specified in its <a href="https://github.com/JdeRobot/RoboticsInfrastructure/blob/humble-devel/CustomRobots/package.xml">package.xml</a> file. To address this, the sourcing and compiling of the workspace have been temporarily commented out.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week1/1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+<p>Additionally, I tested whether Gazebo11 can be installed alongside Gazebo Harmonic by following the instructions in <a href="https://github.com/gazebosim/docs/blob/master/install_gz11_side_by_side.md">Installing Gazebo11 side by side with new Gazebo</a>. However, I found that these instructions resulted in only Gazebo Harmonic being installed.</p>
+
+<h4 id="radi-with-gazebo-harmonic">RADI with Gazebo Harmonic</h4>
+
+<div class="row mt-3 justify-content-center">
+    <div class="col-md-6 mt-3 mt-md-0">
+        
+
+<figure>
+  
+    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week1.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls="" />
+
+  
+  
+</figure>
+
+    </div>
+</div>
+
+<!-- <div class="caption">
+    New RADI with Gazebo Harmonic (with xhost +)
+</div> -->]]></content><author><name></name></author><summary type="html"><![CDATA[Creating and testing a new RADI with Gazebo Harmonic]]></summary></entry><entry><title type="html">Community Bonding: May 20 ~ May 26</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-3/" rel="alternate" type="text/html" title="Community Bonding: May 20 ~ May 26" /><published>2024-05-28T22:10:16+05:30</published><updated>2024-05-28T22:10:16+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-3</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-3/"><![CDATA[<p>The initial project goal was migrating Robotics-Academy to Gazebo Fortress. However, considering that the end-of-life (EOL) for Gazebo Fortress is in September 2026, it was decided in the weekly meeting to migrate Robotics-Academy to Gazebo Harmonic, a LTS (Long-Term Support) version with an EOL in September 2028.</p>
 
 <h4 id="objectives">Objectives</h4>
 
