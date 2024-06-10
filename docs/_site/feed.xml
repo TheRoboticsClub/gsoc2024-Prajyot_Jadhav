@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-06-06T16:28:30+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 1: May 27 ~ June 02</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-weel-1/" rel="alternate" type="text/html" title="Week 1: May 27 ~ June 02" /><published>2024-06-05T02:31:00+05:30</published><updated>2024-06-05T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-weel-1</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-weel-1/"><![CDATA[<p>The goal for this week was to modify the Dockerfiles to create a new RADI with Gazebo Harmonic and test it with xhost +.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-06-10T20:49:42+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 2: June 03 ~ June 09</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-2/" rel="alternate" type="text/html" title="Week 2: June 03 ~ June 09" /><published>2024-06-10T20:31:00+05:30</published><updated>2024-06-10T20:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-2</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-2/"><![CDATA[<p>This week I focused on creatiing a new Gazebo Harmonic launcher for Robotics Application Manager.</p>
+
+<h4 id="objectives">Objectives</h4>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Create a new Gazebo Harmonic launcher for Robotics Application Manager</li>
+</ul>
+
+<h4 id="work-done">Work Done</h4>
+
+<ul>
+  <li>Understood the code of the existing Gazebo View launcher and the related files for Docker Threading and VNC server</li>
+  <li>By referring to the old Gazebo View launcher, created a new launcher for Gazebo Harmonic by:
+    <ul>
+      <li>Updating the commands used for configuring the browser screen dimensions for Gazebo GUI</li>
+      <li>Replacing the commands for starting gzclient with those for starting Gazebo Sim’s GUI</li>
+    </ul>
+  </li>
+  <li>Created a new RADI with installation of Gazebo 11 along with Gazebo Harmonic</li>
+</ul>
+
+<p>In the old Gazebo View launcher, <code class="language-plaintext highlighter-rouge">gui.ini</code> file was modified to set the geometry of the Gazebo client window. The <code class="language-plaintext highlighter-rouge">gui.ini</code> file is a configuration file used by Gazebo Classic to store settings related to the graphical user interface. This file contains parameters that control the appearance of the Gazebo GUI, such as window size and position.</p>
+
+<p>The new Gazebo Sim does not use a <code class="language-plaintext highlighter-rouge">gui.ini</code> file for GUI configurations. Instead, GUI configurations are handled through XML configuration files that define what the window should look like and which plugins should be loaded. By default, Gazebo GUI will load the config file at <code class="language-plaintext highlighter-rouge">$HOME/.gz/gui/default.config</code>, if it exists.</p>
+
+<p>For Gazebo Classic, the <code class="language-plaintext highlighter-rouge">gazebo</code> command runs two different executables, <code class="language-plaintext highlighter-rouge">gzserver</code> and second <code class="language-plaintext highlighter-rouge">gzclient</code>. The gzclient executable runs a QT based user interface that visualizes the simulation and provides control over various simulation properties.
+For Gazebo sim the <code class="language-plaintext highlighter-rouge">gz sim</code> command launches both the Sim server and Sim GUI. The GUI can be run independently using the <code class="language-plaintext highlighter-rouge">-g</code> (gui only) flag.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week2/week2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+<p>Also, Pedro had raised a issue for the <a href="https://github.com/gazebosim/docs/issues/449">Installing Gazebo11 side by side with new Gazebo not working</a>, which was resolved. I created a new RADI with both Gazebo 11 and Gazebo Harmonic installed. However, I still encountered installation failures for <code class="language-plaintext highlighter-rouge">gazebo-ros2-control</code> and <code class="language-plaintext highlighter-rouge">gazebo-ros</code> during <code class="language-plaintext highlighter-rouge">rosdep install</code>. The sourcing and compiling of the workspace has been temporarily commented out until we can address this issues.</p>
+
+<h4 id="radi-with-gazebo-11-and-gazebo-harmonic">RADI with Gazebo 11 and Gazebo Harmonic</h4>
+
+<div class="row mt-3 justify-content-center">
+    <div class="col-lg-10 mt-3 mt-md-0">
+        
+
+<figure>
+  
+    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week2vdo1.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls="" />
+
+  
+  
+</figure>
+
+    </div>
+</div>
+
+<!-- <div class="caption">
+    New RADI with Gazebo Harmonic (with xhost +)
+</div> -->]]></content><author><name></name></author><summary type="html"><![CDATA[Creating new Gazebo Harmonic launcher for Robotics Application Manager]]></summary></entry><entry><title type="html">Week 1: May 27 ~ June 02</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-1/" rel="alternate" type="text/html" title="Week 1: May 27 ~ June 02" /><published>2024-06-05T02:31:00+05:30</published><updated>2024-06-05T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-1</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-1/"><![CDATA[<p>The goal for this week was to modify the Dockerfiles to create a new RADI with Gazebo Harmonic and test it with xhost +.</p>
 
 <h4 id="objectives">Objectives</h4>
 
@@ -32,7 +95,7 @@
   <li>Checked out the installation of Gazebo 11 along with Gazebo Harmonic</li>
 </ul>
 
-<p>I encountered the following error while building an image from the modified Dockerfiles. Replacing Gazebo11 with Gazebo Harmonic caused installation failures for gazebo-ros2-control and gazebo-ros during rosdep install. These are the dependencies for the CustomRobots package, as specified in its <a href="https://github.com/JdeRobot/RoboticsInfrastructure/blob/humble-devel/CustomRobots/package.xml">package.xml</a> file. To address this, the sourcing and compiling of the workspace have been temporarily commented out.</p>
+<p>I encountered the following error while building an image from the modified Dockerfiles. Replacing Gazebo11 with Gazebo Harmonic caused installation failures for <code class="language-plaintext highlighter-rouge">gazebo-ros2-control</code> and <code class="language-plaintext highlighter-rouge">gazebo-ros</code> during <code class="language-plaintext highlighter-rouge">rosdep install</code>. These are the dependencies for the CustomRobots package, as specified in its <a href="https://github.com/JdeRobot/RoboticsInfrastructure/blob/humble-devel/CustomRobots/package.xml">package.xml</a> file. To address this, the sourcing and compiling of the workspace have been temporarily commented out.</p>
 
 <figure>
   <picture>
@@ -53,7 +116,7 @@
 <h4 id="radi-with-gazebo-harmonic">RADI with Gazebo Harmonic</h4>
 
 <div class="row mt-3 justify-content-center">
-    <div class="col-md-6 mt-3 mt-md-0">
+    <div class="col-lg-10 mt-3 mt-md-0">
         
 
 <figure>
