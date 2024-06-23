@@ -17,12 +17,12 @@
   
   
     
-      Week 2: June 03 ~ June 09 | Prajyot Jadhav | JdeRobot x GSoC 2024
+      Week 3: June 10 ~ June 16 | Prajyot Jadhav | JdeRobot x GSoC 2024
     
   
 </title>
 <meta name="author" content="JdeRobot | GSoC 2024">
-<meta name="description" content="Creating new Gazebo Harmonic launcher for Robotics Application Manager">
+<meta name="description" content="Migration of drone_assets to Gazebo Harmonic">
 
 
 
@@ -58,7 +58,7 @@
   <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
 
 <link rel="stylesheet" href="/gsoc2024-Prajyot_Jadhav/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-2/">
+<link rel="canonical" href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/">
 
 <!-- Dark Mode -->
 <script src="/gsoc2024-Prajyot_Jadhav/assets/js/theme.js?a5ca4084d3b81624bcfa01156dae2b8e"></script>
@@ -180,9 +180,9 @@
 
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">Week 2: June 03 ~ June 09</h1>
+    <h1 class="post-title">Week 3: June 10 ~ June 16</h1>
     <p class="post-meta">
-      Created in June 10, 2024
+      Created in June 17, 2024
       
       
       
@@ -200,52 +200,36 @@
   <article class="post-content">
     
     <div id="markdown-content">
-      <p>This week I focused on creatiing a new Gazebo Harmonic launcher for Robotics Application Manager.</p>
+      <p>The goal for this week was to migrate the models in <a href="https://github.com/JdeRobot/RoboticsInfrastructure/tree/humble-devel/CustomRobots/drone_assets" rel="external nofollow noopener" target="_blank">drone_assets</a> to Gazebo Harmonic.</p>
 
 <h4 id="objectives">Objectives</h4>
 
 <ul class="task-list">
   <li class="task-list-item">
-<input type="checkbox" class="task-list-item-checkbox" disabled>Create a new Gazebo Harmonic launcher for Robotics Application Manager</li>
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>drone_assets migration to Gz Harmonic</li>
+</ul>
+
+<h4 id="issues-fixed">Issues Fixed</h4>
+
+<ul>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/401" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/issues/401</a></li>
+</ul>
+
+<h4 id="prs-created">PRs Created</h4>
+
+<ul>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/402" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/pull/402</a></li>
 </ul>
 
 <h4 id="work-done">Work Done</h4>
 
 <ul>
-  <li>Understood the code of the existing Gazebo View launcher and the related files for Docker Threading and VNC server</li>
-  <li>By referring to the old Gazebo View launcher, created a new launcher for Gazebo Harmonic by:
-    <ul>
-      <li>Updating the commands used for configuring the browser screen dimensions for Gazebo GUI</li>
-      <li>Replacing the commands for starting gzclient with those for starting Gazebo Sim’s GUI</li>
-    </ul>
-  </li>
-  <li>Created a new RADI with installation of Gazebo 11 along with Gazebo Harmonic</li>
+  <li>Updated the simple_circuit_followingcam.launch.py file for dummy client testing</li>
+  <li>Determined the issue with commands used for configuring the browser screen dimensions for Gazebo GUI</li>
+  <li>Migrated drone_assets to Gazebo Harmonic</li>
 </ul>
 
-<p>In the old Gazebo View launcher, <code class="language-plaintext highlighter-rouge">gui.ini</code> file was modified to set the geometry of the Gazebo client window. The <code class="language-plaintext highlighter-rouge">gui.ini</code> file is a configuration file used by Gazebo Classic to store settings related to the graphical user interface. This file contains parameters that control the appearance of the Gazebo GUI, such as window size and position.</p>
-
-<p>The new Gazebo Sim does not use a <code class="language-plaintext highlighter-rouge">gui.ini</code> file for GUI configurations. Instead, GUI configurations are handled through XML configuration files that define what the window should look like and which plugins should be loaded. By default, Gazebo GUI will load the config file at <code class="language-plaintext highlighter-rouge">$HOME/.gz/gui/default.config</code>, if it exists.</p>
-
-<p>For Gazebo Classic, the <code class="language-plaintext highlighter-rouge">gazebo</code> command runs two different executables, <code class="language-plaintext highlighter-rouge">gzserver</code> and second <code class="language-plaintext highlighter-rouge">gzclient</code>. The gzclient executable runs a QT based user interface that visualizes the simulation and provides control over various simulation properties.
-For Gazebo sim the <code class="language-plaintext highlighter-rouge">gz sim</code> command launches both the Sim server and Sim GUI. The GUI can be run independently using the <code class="language-plaintext highlighter-rouge">-g</code> (gui only) flag.</p>
-
-<figure>
-  <picture>
-    <!-- Auto scaling with imagemagick -->
-    <!--
-      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
-      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
-    -->
-    
-    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week2/week2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-  </picture>
-
-  
-</figure>
-
-<p>Also, Pedro had raised a issue for the <a href="https://github.com/gazebosim/docs/issues/449" rel="external nofollow noopener" target="_blank">Installing Gazebo11 side by side with new Gazebo not working</a>, which was resolved. I created a new RADI with both Gazebo 11 and Gazebo Harmonic installed. However, I still encountered installation failures for <code class="language-plaintext highlighter-rouge">gazebo-ros2-control</code> and <code class="language-plaintext highlighter-rouge">gazebo-ros</code> during <code class="language-plaintext highlighter-rouge">rosdep install</code>. The sourcing and compiling of the workspace has been temporarily commented out until we can address this issues.</p>
-
-<h4 id="radi-with-gazebo-11-and-gazebo-harmonic">RADI with Gazebo 11 and Gazebo Harmonic</h4>
+<p>Last week, I encountered difficulties while testing the new RAM launcher with the dummy client.  During our meeting, Pedro guided me on debugging and development with the dummy client. In the dummy client, for the second step of <code class="language-plaintext highlighter-rouge">launch_world</code>, the <code class="language-plaintext highlighter-rouge">simple_circuit_followingcam.launch.py</code> file is launched. My focus was on modifying this file to make it compatible with Gazebo Harmonic. I updated the file, replacing <code class="language-plaintext highlighter-rouge">gazebo_ros</code> with <code class="language-plaintext highlighter-rouge">ros_gz</code> and the <code class="language-plaintext highlighter-rouge">gzserver.launch.py</code> file with the corresponding one from the <code class="language-plaintext highlighter-rouge">ros_gz</code> package. Using the dummy client, I successfully executed the first two steps: <code class="language-plaintext highlighter-rouge">connect</code> and <code class="language-plaintext highlighter-rouge">launch_world</code>. The third step, <code class="language-plaintext highlighter-rouge">prepare_visualization</code>, which launches the Gazebo GUI, was commented out. I managed to launch the Gazebo GUI from another terminal inside the container, but encountered a black screen. Running the <code class="language-plaintext highlighter-rouge">gz sim -g</code> command with the <code class="language-plaintext highlighter-rouge">-v4</code> argument showed that the GUI was requesting a list of world names and the server was downloading resources. I am currently working on resolving this issue.</p>
 
 <div class="row mt-3 justify-content-center">
     <div class="col-lg-10 mt-3 mt-md-0">
@@ -253,7 +237,7 @@ For Gazebo sim the <code class="language-plaintext highlighter-rouge">gz sim</co
 
 <figure>
   
-    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week2vdo1.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls=""></video>
+    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week3vdo1.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls=""></video>
 
   
   
@@ -265,6 +249,47 @@ For Gazebo sim the <code class="language-plaintext highlighter-rouge">gz sim</co
 <!-- <div class="caption">
     New RADI with Gazebo Harmonic (with xhost +)
 </div> -->
+
+<p>Previously, I had found that the default configuration file for the Gazebo SIM GUI is located at <code class="language-plaintext highlighter-rouge">$HOME/.gz/gui/default.config</code>. However, for Gazebo Harmonic, the correct path is <code class="language-plaintext highlighter-rouge">$HOME/.gz/sim/&lt;#&gt;/gui.config</code> (where &lt;#&gt; represents Gazebo Sim’s major version). I attempted to launch an empty_world with a modified config file specifying only the window dimensions. However, I observed that a specific set of plugins is necessary to launch an empty_world, and if these are missing, the default config file is used. My next task would be to create a new config file containing only the required plugins, removing unnecessary elements from the Gazebo GUI.</p>
+
+<p>While migrating models in drone_assets to Gazebo Harmonic, I discovered that Gazebo SIM does not support Ogre material files like Classic does, due to its compatibility with multiple rendering engines. In Gazebo Sim, textures can be passed as the albedo map. Therefore, in the sdf files of the models the following code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;material&gt;
+  &lt;script&gt;
+    &lt;uri&gt;model://number1/materials/scripts&lt;/uri&gt;
+    &lt;uri&gt;model://number1/materials/textures&lt;/uri&gt;
+    &lt;name&gt;Number/One&lt;/name&gt;
+  &lt;/script&gt;
+&lt;/material&gt;
+</code></pre></div></div>
+<p>was replaced with:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;material&gt;
+  &lt;pbr&gt;
+    &lt;metal&gt;
+      &lt;albedo_map&gt;model://number1/materials/textures/texture.png&lt;/albedo_map&gt;
+    &lt;/metal&gt;
+  &lt;/pbr&gt;
+&lt;/material&gt;
+</code></pre></div></div>
+<p>I added new models for ocean and polaris_ranger_ev. The models yet to be migrated are: gas_station, house_3, UAVs (iris and typhoon h480). Also the system plugin <code class="language-plaintext highlighter-rouge">libwall2plugin.so</code> used in the cylinder and wall models is to be migrated.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week3/2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+<div class="caption">
+    Models from Rescue People exercise migrated to Gazebo Harmonic
+</div>
 
     </div>
   </article>
@@ -290,13 +315,13 @@ For Gazebo sim the <code class="language-plaintext highlighter-rouge">gz sim</co
   
 
   <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-2/">Week 2: June 03 ~ June 09</a>
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/">Week 3: June 10 ~ June 16</a>
   </li>
 
   
 
   <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/">Week 3: June 10 ~ June 16</a>
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-2/">Week 2: June 03 ~ June 09</a>
   </li>
 
   
@@ -308,13 +333,13 @@ For Gazebo sim the <code class="language-plaintext highlighter-rouge">gz sim</co
   
 
   <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-1-and-2/">Community Bonding: May 6 ~ May 19</a>
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-3/">Community Bonding: May 20 ~ May 26</a>
   </li>
 
   
 
   <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-3/">Community Bonding: May 20 ~ May 26</a>
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-1-and-2/">Community Bonding: May 6 ~ May 19</a>
   </li>
 
 
