@@ -184,7 +184,7 @@
   <header class="post-header">
     <h1 class="post-title">Week 4: June 17 ~ June 23</h1>
     <p class="post-meta">
-      Created in June 22, 2024
+      Created in June 24, 2024
       
       
       
@@ -232,7 +232,7 @@
   <li>Resolved the black screen issue encountered for Gazebo GUI</li>
 </ul>
 
-<p>Last week, I faced a black screen when launching the Gazebo GUI from another terminal inside the container while executing the first two steps of the dummy client. We discovered that the issue was due to models being added to the Gazebo world from <a href="https://app.gazebosim.org/fuel" rel="external nofollow noopener" target="_blank">Gazebo Fuel</a> via SDF snippets (e.g., https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke). By removing the SDF snippets for the two models (sun and ground plane), the issue was resolved. I created an empty world file in RoboticsInfrastructure without the sun and ground plane models, which is used during dummy client testing.</p>
+<p>Last week, I faced a black screen when launching the Gazebo GUI from another terminal inside the container while executing the first two steps of the dummy client. We discovered that the issue was due to models being added to the Gazebo world from <a href="https://app.gazebosim.org/fuel" rel="external nofollow noopener" target="_blank">Gazebo Fuel</a> via SDF snippets (e.g., <code class="language-plaintext highlighter-rouge">https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</code>). By removing the SDF snippets for the two models (sun and ground plane), the issue was resolved. I created an empty world file in RoboticsInfrastructure without the sun and ground plane models, which is used during dummy client testing.</p>
 
 <div class="row mt-3 justify-content-center">
     <div class="col-lg-10 mt-3 mt-md-0">
@@ -249,7 +249,7 @@
     </div>
 </div>
 
-<p>I created a new config file containing only the required plugins, removing unnecessary elements from the Gazebo GUI. The essential plugins are MinimalScene and GzSceneManager, responsible for displaying the 3D scene. Additionally, I included InteractiveViewControl to allow user interaction with the GUI, such as moving the camera and zooming. I verified that the GUI dimensions could be adjusted by altering the width and height parameters in the config file.</p>
+<p>I created a new config file containing only the required plugins, removing unnecessary elements from the Gazebo GUI. The essential plugins are <code class="language-plaintext highlighter-rouge">MinimalScene</code> and <code class="language-plaintext highlighter-rouge">GzSceneManager</code>, responsible for displaying the 3D scene. Additionally, I included <code class="language-plaintext highlighter-rouge">InteractiveViewControl</code> to allow user interaction with the GUI, such as moving the camera and zooming. I verified that the GUI dimensions could be adjusted by altering the width and height parameters in the config file.</p>
 
 <figure>
   <picture>
@@ -306,6 +306,12 @@
   
 
   <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/">Week 5 and Week 6: June 24 ~ July 07</a>
+  </li>
+
+  
+
+  <li class="my-2">
     <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/">Week 4: June 17 ~ June 23</a>
   </li>
 
@@ -325,12 +331,6 @@
 
   <li class="my-2">
     <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-1/">Week 1: May 27 ~ June 02</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-3/">Community Bonding: May 20 ~ May 26</a>
   </li>
 
 

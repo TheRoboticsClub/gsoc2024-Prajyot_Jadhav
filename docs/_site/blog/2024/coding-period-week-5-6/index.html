@@ -16,11 +16,13 @@
 <title>
   
   
-    blog | Prajyot Jadhav | JdeRobot x GSoC 2024
+    
+      Week 5 and Week 6: June 24 ~ July 07 | Prajyot Jadhav | JdeRobot x GSoC 2024
+    
   
 </title>
 <meta name="author" content="JdeRobot | GSoC 2024">
-<meta name="description" content="">
+<meta name="description" content="New DDBB entry and migration of worlds and related files to Gz Harmonic">
 
 
 
@@ -56,7 +58,7 @@
   <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
 
 <link rel="stylesheet" href="/gsoc2024-Prajyot_Jadhav/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/">
+<link rel="canonical" href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/">
 
 <!-- Dark Mode -->
 <script src="/gsoc2024-Prajyot_Jadhav/assets/js/theme.js?a5ca4084d3b81624bcfa01156dae2b8e"></script>
@@ -130,14 +132,10 @@
             
           
             
-          
-            
               
-                <li class="nav-item active">
+                <li class="nav-item ">
                   
                   <a class="nav-link" href="/gsoc2024-Prajyot_Jadhav/blog/">blog
-                    
-                      <span class="sr-only">(current)</span>
                     
                   </a>
                 </li>
@@ -174,233 +172,224 @@
     <!-- Content -->
     <div class="container mt-5" role="main">
       
-        <div class="post">
+        
 
 
 
 
 
 
-  <div class="header-bar">
-    <h1></h1>
-    <h2>Robotics-Academy: Migration to Gazebo Harmonic</h2>
-  </div>
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">Week 5 and Week 6: June 24 ~ July 07</h1>
+    <p class="post-meta">
+      Created in July 09, 2024
+      
+      
+      
+    </p>
+    <p class="post-tags">
+      
+        <a href="/gsoc2024-Prajyot_Jadhav/blog/2024"> <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>
+      
+      
+
+      
+    </p>
+  </header>
+
+  <article class="post-content">
+    
+    <div id="markdown-content">
+      <h4 id="objectives">Objectives</h4>
+
+<ul class="task-list">
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>Create a new Gazebo Harmonic launcher for Robotics Application Manager</li>
+</ul>
+
+<h4 id="issues-fixed">Issues Fixed</h4>
+
+<ul>
+  <li><a href="https://github.com/JdeRobot/RoboticsAcademy/issues/2569" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsAcademy/issues/2569</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/409" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/issues/409</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/406" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/issues/406</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/403" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/issues/403</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsAcademy/issues/2634" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsAcademy/issues/2634</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/415" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/issues/415</a></li>
+</ul>
+
+<h4 id="prs-created">PRs Created</h4>
+
+<ul>
+  <li><a href="https://github.com/JdeRobot/RoboticsAcademy/pull/2602" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsAcademy/pull/2602</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/410" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/pull/410</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/413" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/pull/413</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/412" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/pull/412</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsAcademy/pull/2635" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsAcademy/pull/2635</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/419" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/pull/419</a></li>
+</ul>
+
+<h4 id="work-done">Work Done</h4>
+
+<ul>
+  <li>Created a config file for Gazebo GUI containing only the required plugins</li>
+  <li>Migrated the Gazebo View launcher to Gazebo Harmonic by updating the commands used for configuring the browser screen dimensions for Gazebo GUI</li>
+  <li>Resolved the black screen issue encountered for Gazebo GUI</li>
+</ul>
+
+<p>The issue (<a href="https://github.com/gazebo-tooling/release-tools/issues/1152" rel="external nofollow noopener" target="_blank">#1152</a>), gazebo11-gz-cli PPA does not support ROS packages on Jammy, was resolved. So I was able to install Gazebo11 along with Gz Harmonic for the RADI. The issue encountered during the installation of the package <code class="language-plaintext highlighter-rouge">ros-humble-gazebo-ros</code> was resolved. The sourcing and compiling of the workspaces had previously been temporarily commented out. As the issues regarding the installation of dependencies was resolved, I was able to successfully build the workspaces.</p>
+
+<p>I updated the hooks for the <code class="language-plaintext highlighter-rouge">CustomRobots</code> package and also updated the <code class="language-plaintext highlighter-rouge">.env</code> script for Gz Harmonic. During this migration I found that there is no separate model path for Gz sim, as it considers both models and worlds as resources. For Gazebo Classic the environment variables were <code class="language-plaintext highlighter-rouge">GAZEBO_MODEL_PATH</code> for models and <code class="language-plaintext highlighter-rouge">GAZEBO_RESOURCE_PATH</code> for worlds and some rendering resources, whereas that for Gz Sim is <code class="language-plaintext highlighter-rouge">GZ_SIM_RESOURCE_PATH</code> for worlds, models and other resources.</p>
+
+<p>The world file for the rescue people exercise was migrated to Gz Harmonic using the previously migrated drone_assets.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week3/2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+<div class="caption">
+    Rescue People world migrated to Gazebo Harmonic
+</div>
+
+<p>The world for the follow road exercise was also migrated to Gazebo Harmonic. During this migration, I found that in the Gazebo Classic world file the road was included with a <road> tag, but it is not supported with Gz Sim <a href="https://github.com/gazebosim/gz-sim/issues/2320" rel="external nofollow noopener" target="_blank">(#2320)</a>. So for creating a road track, I created two models, one for a road curve and the other for a straight road.</road></p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week3/2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+<div class="caption">
+    Follow Road world migrated to Gazebo Harmonic
+</div>
+
+<p>Last week, I faced a black screen when launching the Gazebo GUI from another terminal inside the container while executing the first two steps of the dummy client. We discovered that the issue was due to models being added to the Gazebo world from <a href="https://app.gazebosim.org/fuel" rel="external nofollow noopener" target="_blank">Gazebo Fuel</a> via SDF snippets (e.g., https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke). By removing the SDF snippets for the two models (sun and ground plane), the issue was resolved. I created an empty world file in RoboticsInfrastructure without the sun and ground plane models, which is used during dummy client testing.</p>
+
+<div class="row mt-3 justify-content-center">
+    <div class="col-lg-10 mt-3 mt-md-0">
+        
+
+<figure>
+  
+    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week4vdo1.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls=""></video>
+
+  
+  
+</figure>
+
+    </div>
+</div>
+
+<p>I created a new config file containing only the required plugins, removing unnecessary elements from the Gazebo GUI. The essential plugins are MinimalScene and GzSceneManager, responsible for displaying the 3D scene. Additionally, I included InteractiveViewControl to allow user interaction with the GUI, such as moving the camera and zooming. I verified that the GUI dimensions could be adjusted by altering the width and height parameters in the config file.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week4/1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+<p>I updated the RAM launcher created in Week 2 of the coding period. The commands for configuring the browser screen dimensions for Gazebo GUI were updated. I successfully tested this launcher with the dummy client and was able to get a Gazebo Sim GUI on the web server.</p>
+
+<div class="row mt-3 justify-content-center">
+    <div class="col-lg-10 mt-3 mt-md-0">
+        
+
+<figure>
+  
+    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week4vdo2.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls=""></video>
+
+  
+  
+</figure>
+
+    </div>
+</div>
+
+    </div>
+  </article>
+  
   
 
-
-
-  <div class="tag-category-list">
-    <ul class="p-0 m-0">
-      
-      
-      
-    </ul>
-  </div>
   
 
-
-
-
-  <ul class="post-list">
-
+  
     
-
-    
-
-    
-    
-    
-    
-
-    <li>
-
-
-        <h3>
-        
-          <a class="post-title" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/">Week 5 and Week 6: June 24 ~ July 07</a>
-        
-      </h3>
-      <p>New DDBB entry and migration of worlds and related files to Gz Harmonic</p>
-      <p class="post-meta">
-        5 min read   ·  
-        July 09, 2024
-        
-      </p>
-      <p class="post-tags">
-        <a href="/gsoc2024-Prajyot_Jadhav/blog/2024">
-          <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>
-
-          
-
-          
-    </p>
-
-
-    </li>
-
-    
-
-    
-    
-    
-    
-
-    <li>
-
-
-        <h3>
-        
-          <a class="post-title" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/">Week 4: June 17 ~ June 23</a>
-        
-      </h3>
-      <p>New Gazebo Harmonic launcher for Robotics Application Manager</p>
-      <p class="post-meta">
-        3 min read   ·  
-        June 24, 2024
-        
-      </p>
-      <p class="post-tags">
-        <a href="/gsoc2024-Prajyot_Jadhav/blog/2024">
-          <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>
-
-          
-
-          
-    </p>
-
-
-    </li>
-
-    
-
-    
-    
-    
-    
-
-    <li>
-
-
-        <h3>
-        
-          <a class="post-title" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/">Week 3: June 10 ~ June 16</a>
-        
-      </h3>
-      <p>Migration of drone_assets to Gazebo Harmonic</p>
-      <p class="post-meta">
-        4 min read   ·  
-        June 18, 2024
-        
-      </p>
-      <p class="post-tags">
-        <a href="/gsoc2024-Prajyot_Jadhav/blog/2024">
-          <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>
-
-          
-
-          
-    </p>
-
-
-    </li>
-
-    
-
-    
-    
-    
-    
-
-    <li>
-
-
-        <h3>
-        
-          <a class="post-title" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-2/">Week 2: June 03 ~ June 09</a>
-        
-      </h3>
-      <p>Creating new Gazebo Harmonic launcher for Robotics Application Manager</p>
-      <p class="post-meta">
-        3 min read   ·  
-        June 10, 2024
-        
-      </p>
-      <p class="post-tags">
-        <a href="/gsoc2024-Prajyot_Jadhav/blog/2024">
-          <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>
-
-          
-
-          
-    </p>
-
-
-    </li>
-
-    
-
-    
-    
-    
-    
-
-    <li>
-
-
-        <h3>
-        
-          <a class="post-title" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-1/">Week 1: May 27 ~ June 02</a>
-        
-      </h3>
-      <p>Creating and testing a new RADI with Gazebo Harmonic</p>
-      <p class="post-meta">
-        2 min read   ·  
-        June 05, 2024
-        
-      </p>
-      <p class="post-tags">
-        <a href="/gsoc2024-Prajyot_Jadhav/blog/2024">
-          <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>
-
-          
-
-          
-    </p>
-
-
-    </li>
-
-    
-
-  </ul>
-
-
-
-  <nav aria-label="Blog page navigation">
-    <ul class="pagination pagination-lg justify-content-center">
-      <li class="page-item disabled">
-        <a class="page-link" href="" tabindex="-1" aria-disabled="">Newer</a>
-      </li>
       
-        
-          <li class="page-item active">
-            <a class="page-link" href="/gsoc2024-Prajyot_Jadhav/blog/index.html" title="blog">1</a>
-          </li>
-        
-          <li class="page-item ">
-            <a class="page-link" href="/gsoc2024-Prajyot_Jadhav/blog/page/2/index.html" title="blog - page 2">2</a>
-          </li>
-        
-      
-      <li class="page-item ">
-        <a class="page-link" href="/gsoc2024-Prajyot_Jadhav/blog/page/2/">Older</a>
-      </li>
-    </ul>
-  </nav>
+
+  
+    
+    <br>
+    <hr>
+    <br>
+    <ul class="list-disc pl-8"></ul>
+
+    <!-- Adds related posts to the end of an article -->
+    <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
+    <p class="mb-2">Here are some more articles you might like to read next:</p>
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/">Week 5 and Week 6: June 24 ~ July 07</a>
+  </li>
+
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/">Week 4: June 17 ~ June 23</a>
+  </li>
+
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/">Week 3: June 10 ~ June 16</a>
+  </li>
+
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-2/">Week 2: June 03 ~ June 09</a>
+  </li>
+
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-1/">Week 1: May 27 ~ June 02</a>
+  </li>
 
 
+    
+  
 
-
+  
+  
 </div>
 
       

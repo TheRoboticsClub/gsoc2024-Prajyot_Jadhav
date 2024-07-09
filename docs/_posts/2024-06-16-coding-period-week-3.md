@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Week 3: June 10 ~ June 16"
-date: 2024-06-16 21:01:00
+date: 2024-06-17 21:01:00
 description: Migration of drone_assets to Gazebo Harmonic 
 tags: 
 categories: 

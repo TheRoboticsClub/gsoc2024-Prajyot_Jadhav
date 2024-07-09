@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-06-23T20:41:06+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 4: June 17 ~ June 23</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/" rel="alternate" type="text/html" title="Week 4: June 17 ~ June 23" /><published>2024-06-22T23:31:00+05:30</published><updated>2024-06-22T23:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/"><![CDATA[<p>The goal for this week was to create a Gazebo Harmonic launcher for Robotics Application Manager (RAM) and to launch the Gazebo GUI from RAM.</p>
-
-<h4 id="objectives">Objectives</h4>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-07-09T23:44:05+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 5 and Week 6: June 24 ~ July 07</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/" rel="alternate" type="text/html" title="Week 5 and Week 6: June 24 ~ July 07" /><published>2024-07-09T02:31:00+05:30</published><updated>2024-07-09T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/"><![CDATA[<h4 id="objectives">Objectives</h4>
 
 <ul class="task-list">
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Create a new Gazebo Harmonic launcher for Robotics Application Manager</li>
@@ -9,14 +7,23 @@
 <h4 id="issues-fixed">Issues Fixed</h4>
 
 <ul>
-  <li><a href="https://github.com/JdeRobot/RoboticsApplicationManager/issues/135">https://github.com/JdeRobot/RoboticsApplicationManager/issues/135</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsAcademy/issues/2569">https://github.com/JdeRobot/RoboticsAcademy/issues/2569</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/409">https://github.com/JdeRobot/RoboticsInfrastructure/issues/409</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/406">https://github.com/JdeRobot/RoboticsInfrastructure/issues/406</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/403">https://github.com/JdeRobot/RoboticsInfrastructure/issues/403</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsAcademy/issues/2634">https://github.com/JdeRobot/RoboticsAcademy/issues/2634</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/415">https://github.com/JdeRobot/RoboticsInfrastructure/issues/415</a></li>
 </ul>
 
 <h4 id="prs-created">PRs Created</h4>
 
 <ul>
-  <li><a href="https://github.com/JdeRobot/RoboticsApplicationManager/pull/136">https://github.com/JdeRobot/RoboticsApplicationManager/pull/136</a></li>
-  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/400">https://github.com/JdeRobot/RoboticsInfrastructure/pull/400</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsAcademy/pull/2602">https://github.com/JdeRobot/RoboticsAcademy/pull/2602</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/410">https://github.com/JdeRobot/RoboticsInfrastructure/pull/410</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/413">https://github.com/JdeRobot/RoboticsInfrastructure/pull/413</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/412">https://github.com/JdeRobot/RoboticsInfrastructure/pull/412</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsAcademy/pull/2635">https://github.com/JdeRobot/RoboticsAcademy/pull/2635</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/419">https://github.com/JdeRobot/RoboticsInfrastructure/pull/419</a></li>
 </ul>
 
 <h4 id="work-done">Work Done</h4>
@@ -26,6 +33,50 @@
   <li>Migrated the Gazebo View launcher to Gazebo Harmonic by updating the commands used for configuring the browser screen dimensions for Gazebo GUI</li>
   <li>Resolved the black screen issue encountered for Gazebo GUI</li>
 </ul>
+
+<p>The issue (<a href="https://github.com/gazebo-tooling/release-tools/issues/1152">#1152</a>), gazebo11-gz-cli PPA does not support ROS packages on Jammy, was resolved. So I was able to install Gazebo11 along with Gz Harmonic for the RADI. The issue encountered during the installation of the package <code class="language-plaintext highlighter-rouge">ros-humble-gazebo-ros</code> was resolved. The sourcing and compiling of the workspaces had previously been temporarily commented out. As the issues regarding the installation of dependencies was resolved, I was able to successfully build the workspaces.</p>
+
+<p>I updated the hooks for the <code class="language-plaintext highlighter-rouge">CustomRobots</code> package and also updated the <code class="language-plaintext highlighter-rouge">.env</code> script for Gz Harmonic. During this migration I found that there is no separate model path for Gz sim, as it considers both models and worlds as resources. For Gazebo Classic the environment variables were <code class="language-plaintext highlighter-rouge">GAZEBO_MODEL_PATH</code> for models and <code class="language-plaintext highlighter-rouge">GAZEBO_RESOURCE_PATH</code> for worlds and some rendering resources, whereas that for Gz Sim is <code class="language-plaintext highlighter-rouge">GZ_SIM_RESOURCE_PATH</code> for worlds, models and other resources.</p>
+
+<p>The world file for the rescue people exercise was migrated to Gz Harmonic using the previously migrated drone_assets.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week3/2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+<div class="caption">
+    Rescue People world migrated to Gazebo Harmonic
+</div>
+
+<p>The world for the follow road exercise was also migrated to Gazebo Harmonic. During this migration, I found that in the Gazebo Classic world file the road was included with a <road> tag, but it is not supported with Gz Sim <a href="https://github.com/gazebosim/gz-sim/issues/2320">(#2320)</a>. So for creating a road track, I created two models, one for a road curve and the other for a straight road.</road></p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week3/2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+<div class="caption">
+    Follow Road world migrated to Gazebo Harmonic
+</div>
 
 <p>Last week, I faced a black screen when launching the Gazebo GUI from another terminal inside the container while executing the first two steps of the dummy client. We discovered that the issue was due to models being added to the Gazebo world from <a href="https://app.gazebosim.org/fuel">Gazebo Fuel</a> via SDF snippets (e.g., https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke). By removing the SDF snippets for the two models (sun and ground plane), the issue was resolved. I created an empty world file in RoboticsInfrastructure without the sun and ground plane models, which is used during dummy client testing.</p>
 
@@ -75,7 +126,84 @@
 </figure>
 
     </div>
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[New Gazebo Harmonic launcher for Robotics Application Manager]]></summary></entry><entry><title type="html">Week 3: June 10 ~ June 16</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/" rel="alternate" type="text/html" title="Week 3: June 10 ~ June 16" /><published>2024-06-17T02:31:00+05:30</published><updated>2024-06-17T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/"><![CDATA[<p>The goal for this week was to migrate the models in <a href="https://github.com/JdeRobot/RoboticsInfrastructure/tree/humble-devel/CustomRobots/drone_assets">drone_assets</a> to Gazebo Harmonic.</p>
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[New DDBB entry and migration of worlds and related files to Gz Harmonic]]></summary></entry><entry><title type="html">Week 4: June 17 ~ June 23</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/" rel="alternate" type="text/html" title="Week 4: June 17 ~ June 23" /><published>2024-06-24T02:31:00+05:30</published><updated>2024-06-24T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/"><![CDATA[<p>The goal for this week was to create a Gazebo Harmonic launcher for Robotics Application Manager (RAM) and to launch the Gazebo GUI from RAM.</p>
+
+<h4 id="objectives">Objectives</h4>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Create a new Gazebo Harmonic launcher for Robotics Application Manager</li>
+</ul>
+
+<h4 id="issues-fixed">Issues Fixed</h4>
+
+<ul>
+  <li><a href="https://github.com/JdeRobot/RoboticsApplicationManager/issues/135">https://github.com/JdeRobot/RoboticsApplicationManager/issues/135</a></li>
+</ul>
+
+<h4 id="prs-created">PRs Created</h4>
+
+<ul>
+  <li><a href="https://github.com/JdeRobot/RoboticsApplicationManager/pull/136">https://github.com/JdeRobot/RoboticsApplicationManager/pull/136</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/400">https://github.com/JdeRobot/RoboticsInfrastructure/pull/400</a></li>
+</ul>
+
+<h4 id="work-done">Work Done</h4>
+
+<ul>
+  <li>Created a config file for Gazebo GUI containing only the required plugins</li>
+  <li>Migrated the Gazebo View launcher to Gazebo Harmonic by updating the commands used for configuring the browser screen dimensions for Gazebo GUI</li>
+  <li>Resolved the black screen issue encountered for Gazebo GUI</li>
+</ul>
+
+<p>Last week, I faced a black screen when launching the Gazebo GUI from another terminal inside the container while executing the first two steps of the dummy client. We discovered that the issue was due to models being added to the Gazebo world from <a href="https://app.gazebosim.org/fuel">Gazebo Fuel</a> via SDF snippets (e.g., <code class="language-plaintext highlighter-rouge">https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</code>). By removing the SDF snippets for the two models (sun and ground plane), the issue was resolved. I created an empty world file in RoboticsInfrastructure without the sun and ground plane models, which is used during dummy client testing.</p>
+
+<div class="row mt-3 justify-content-center">
+    <div class="col-lg-10 mt-3 mt-md-0">
+        
+
+<figure>
+  
+    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week4vdo1.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls="" />
+
+  
+  
+</figure>
+
+    </div>
+</div>
+
+<p>I created a new config file containing only the required plugins, removing unnecessary elements from the Gazebo GUI. The essential plugins are <code class="language-plaintext highlighter-rouge">MinimalScene</code> and <code class="language-plaintext highlighter-rouge">GzSceneManager</code>, responsible for displaying the 3D scene. Additionally, I included <code class="language-plaintext highlighter-rouge">InteractiveViewControl</code> to allow user interaction with the GUI, such as moving the camera and zooming. I verified that the GUI dimensions could be adjusted by altering the width and height parameters in the config file.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week4/1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+<p>I updated the RAM launcher created in Week 2 of the coding period. The commands for configuring the browser screen dimensions for Gazebo GUI were updated. I successfully tested this launcher with the dummy client and was able to get a Gazebo Sim GUI on the web server.</p>
+
+<div class="row mt-3 justify-content-center">
+    <div class="col-lg-10 mt-3 mt-md-0">
+        
+
+<figure>
+  
+    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week4vdo2.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls="" />
+
+  
+  
+</figure>
+
+    </div>
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[New Gazebo Harmonic launcher for Robotics Application Manager]]></summary></entry><entry><title type="html">Week 3: June 10 ~ June 16</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/" rel="alternate" type="text/html" title="Week 3: June 10 ~ June 16" /><published>2024-06-18T02:31:00+05:30</published><updated>2024-06-18T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/"><![CDATA[<p>The goal for this week was to migrate the models in <a href="https://github.com/JdeRobot/RoboticsInfrastructure/tree/humble-devel/CustomRobots/drone_assets">drone_assets</a> to Gazebo Harmonic.</p>
 
 <h4 id="objectives">Objectives</h4>
 
