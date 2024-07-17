@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-07-17T12:16:31+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 5 and Week 6: June 24 ~ July 07</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/" rel="alternate" type="text/html" title="Week 5 and Week 6: June 24 ~ July 07" /><published>2024-07-09T02:31:00+05:30</published><updated>2024-07-09T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/"><![CDATA[<h4 id="objectives">Objectives</h4>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-07-17T23:50:52+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 7: July 08 ~ July 14</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-7/" rel="alternate" type="text/html" title="Week 7: July 08 ~ July 14" /><published>2024-07-16T17:31:00+05:30</published><updated>2024-07-16T17:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-7</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-7/"><![CDATA[<h4 id="objectives">Objectives</h4>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Updating the DDBB entry for Rescue People Harmonic exercise</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Updating drones_ros2 launcher to launch the Aerostack2 Gz Sim launcher</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Updating the Aerostack2 launcher for Gz Sim</li>
+</ul>
+
+<h4 id="issues-fixed">Issues Fixed</h4>
+
+<ul>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/422">https://github.com/JdeRobot/RoboticsInfrastructure/issues/422</a></li>
+</ul>
+
+<h4 id="prs-created">PRs Created</h4>
+
+<ul>
+  <li><a href="https://github.com/JdeRobot/RoboticsApplicationManager/pull/138">https://github.com/JdeRobot/RoboticsApplicationManager/pull/138</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/423">https://github.com/JdeRobot/RoboticsInfrastructure/pull/423</a></li>
+</ul>
+
+<h4 id="work-done">Work Done</h4>
+
+<p>Last week, I created a new <code class="language-plaintext highlighter-rouge">Gz Sim</code> world type for the exercise template by migrating the Django model. However, while reviewing the RoboticsApplicationManager codebase, I discovered that the GazeboView launcher is launched during the visualization step. Consequently, I had to revert the previous week’s changes and create two new visualization options: <code class="language-plaintext highlighter-rouge">Gz Sim GRA</code> and <code class="language-plaintext highlighter-rouge">Gz Sim RAE</code>. Now, when these fields are selected for visualization, the new Gz Sim launcher is launched for the Gazebo Sim GUI.</p>
+
+<p>Next, I updated the drones_ros2 launcher, which is used for the drones and ROS2 world type. Instead of launching the <code class="language-plaintext highlighter-rouge">aerostack2_default_gazebo_classic</code> launch file, it now launches the <code class="language-plaintext highlighter-rouge">aerostack2_default_gazebo_sim</code> launch file from the <code class="language-plaintext highlighter-rouge">jderobot_drones</code> package.</p>
+
+<p>I updated the <code class="language-plaintext highlighter-rouge">aerostack2_default_gazebo_sim</code> launch file to launch the <code class="language-plaintext highlighter-rouge">as2_platform_gazebo</code> and <code class="language-plaintext highlighter-rouge">as2_gazebo_assets</code> packages. The <code class="language-plaintext highlighter-rouge">as2_gazebo_assets</code> package is now launched in headless mode. This means that only the Gazebo server is started, without the GUI. The Gazebo GUI can be launched separately during the visualization step using the new Gz Sim launcher.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week7/1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+<div class="caption">
+    Rescue People exercise
+</div>
+
+<p>However, I am currently facing two issues. The world starts at the default camera position rather than the one specified in the SDF file of the world. Also, I am encountering an error with the HAL functions: <code class="language-plaintext highlighter-rouge">Service drone0                                                             /controller/set_control_mode is not available</code></p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week7/2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>]]></content><author><name></name></author><summary type="html"><![CDATA[Updating Aerostack2 launcher for Gz Sim]]></summary></entry><entry><title type="html">Week 5 and Week 6: June 24 ~ July 07</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/" rel="alternate" type="text/html" title="Week 5 and Week 6: June 24 ~ July 07" /><published>2024-07-09T02:31:00+05:30</published><updated>2024-07-09T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/"><![CDATA[<h4 id="objectives">Objectives</h4>
 
 <ul class="task-list">
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Installation of Gazebo11 along with Gazebo Harmonic for the RADI</li>

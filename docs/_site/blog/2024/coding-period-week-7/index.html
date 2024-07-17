@@ -17,12 +17,12 @@
   
   
     
-      Week 4: June 17 ~ June 23 | Prajyot Jadhav | JdeRobot x GSoC 2024
+      Week 7: July 08 ~ July 14 | Prajyot Jadhav | JdeRobot x GSoC 2024
     
   
 </title>
 <meta name="author" content="JdeRobot | GSoC 2024">
-<meta name="description" content="New Gazebo Harmonic launcher for Robotics Application Manager">
+<meta name="description" content="Updating Aerostack2 launcher for Gz Sim">
 
 
 
@@ -58,7 +58,7 @@
   <link rel="shortcut icon" href="/gsoc2024-Prajyot_Jadhav/assets/img/file.png?a4d243233aa137889e20a6fc4a0d83a2">
 
 <link rel="stylesheet" href="/gsoc2024-Prajyot_Jadhav/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/">
+<link rel="canonical" href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-7/">
 
 <!-- Dark Mode -->
 <script src="/gsoc2024-Prajyot_Jadhav/assets/js/theme.js?a5ca4084d3b81624bcfa01156dae2b8e"></script>
@@ -182,9 +182,9 @@
 
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">Week 4: June 17 ~ June 23</h1>
+    <h1 class="post-title">Week 7: July 08 ~ July 14</h1>
     <p class="post-meta">
-      Created in June 24, 2024
+      Created in July 16, 2024
       
       
       
@@ -202,54 +202,37 @@
   <article class="post-content">
     
     <div id="markdown-content">
-      <p>The goal for this week was to create a Gazebo Harmonic launcher for Robotics Application Manager (RAM) and to launch the Gazebo GUI from RAM.</p>
-
-<h4 id="objectives">Objectives</h4>
+      <h4 id="objectives">Objectives</h4>
 
 <ul class="task-list">
   <li class="task-list-item">
-<input type="checkbox" class="task-list-item-checkbox" disabled checked>Create a new Gazebo Harmonic launcher for Robotics Application Manager</li>
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>Updating the DDBB entry for Rescue People Harmonic exercise</li>
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>Updating drones_ros2 launcher to launch the Aerostack2 Gz Sim launcher</li>
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled checked>Updating the Aerostack2 launcher for Gz Sim</li>
 </ul>
 
 <h4 id="issues-fixed">Issues Fixed</h4>
 
 <ul>
-  <li><a href="https://github.com/JdeRobot/RoboticsApplicationManager/issues/135" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsApplicationManager/issues/135</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/422" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/issues/422</a></li>
 </ul>
 
 <h4 id="prs-created">PRs Created</h4>
 
 <ul>
-  <li><a href="https://github.com/JdeRobot/RoboticsApplicationManager/pull/136" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsApplicationManager/pull/136</a></li>
-  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/400" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/pull/400</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsApplicationManager/pull/138" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsApplicationManager/pull/138</a></li>
+  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/423" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/pull/423</a></li>
 </ul>
 
 <h4 id="work-done">Work Done</h4>
 
-<ul>
-  <li>Created a config file for Gazebo GUI containing only the required plugins</li>
-  <li>Migrated the Gazebo View launcher to Gazebo Harmonic by updating the commands used for configuring the browser screen dimensions for Gazebo GUI</li>
-  <li>Resolved the black screen issue encountered for Gazebo GUI</li>
-</ul>
+<p>Last week, I created a new <code class="language-plaintext highlighter-rouge">Gz Sim</code> world type for the exercise template by migrating the Django model. However, while reviewing the RoboticsApplicationManager codebase, I discovered that the GazeboView launcher is launched during the visualization step. Consequently, I had to revert the previous week’s changes and create two new visualization options: <code class="language-plaintext highlighter-rouge">Gz Sim GRA</code> and <code class="language-plaintext highlighter-rouge">Gz Sim RAE</code>. Now, when these fields are selected for visualization, the new Gz Sim launcher is launched for the Gazebo Sim GUI.</p>
 
-<p>Last week, I faced a black screen when launching the Gazebo GUI from another terminal inside the container while executing the first two steps of the dummy client. We discovered that the issue was due to models being added to the Gazebo world from <a href="https://app.gazebosim.org/fuel" rel="external nofollow noopener" target="_blank">Gazebo Fuel</a> via SDF snippets (e.g., <code class="language-plaintext highlighter-rouge">https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</code>). By removing the SDF snippets for the two models (sun and ground plane), the issue was resolved. I created an empty world file in RoboticsInfrastructure without the sun and ground plane models, which is used during dummy client testing.</p>
+<p>Next, I updated the drones_ros2 launcher, which is used for the drones and ROS2 world type. Instead of launching the <code class="language-plaintext highlighter-rouge">aerostack2_default_gazebo_classic</code> launch file, it now launches the <code class="language-plaintext highlighter-rouge">aerostack2_default_gazebo_sim</code> launch file from the <code class="language-plaintext highlighter-rouge">jderobot_drones</code> package.</p>
 
-<div class="row mt-3 justify-content-center">
-    <div class="col-lg-10 mt-3 mt-md-0">
-        
-
-<figure>
-  
-    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week4vdo1.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls=""></video>
-
-  
-  
-</figure>
-
-    </div>
-</div>
-
-<p>I created a new config file containing only the required plugins, removing unnecessary elements from the Gazebo GUI. The essential plugins are <code class="language-plaintext highlighter-rouge">MinimalScene</code> and <code class="language-plaintext highlighter-rouge">GzSceneManager</code>, responsible for displaying the 3D scene. Additionally, I included <code class="language-plaintext highlighter-rouge">InteractiveViewControl</code> to allow user interaction with the GUI, such as moving the camera and zooming. I verified that the GUI dimensions could be adjusted by altering the width and height parameters in the config file.</p>
+<p>I updated the <code class="language-plaintext highlighter-rouge">aerostack2_default_gazebo_sim</code> launch file to launch the <code class="language-plaintext highlighter-rouge">as2_platform_gazebo</code> and <code class="language-plaintext highlighter-rouge">as2_gazebo_assets</code> packages. The <code class="language-plaintext highlighter-rouge">as2_gazebo_assets</code> package is now launched in headless mode. This means that only the Gazebo server is started, without the GUI. The Gazebo GUI can be launched separately during the visualization step using the new Gz Sim launcher.</p>
 
 <figure>
   <picture>
@@ -259,28 +242,32 @@
       https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
     -->
     
-    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week4/1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week7/1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
   </picture>
 
   
 </figure>
 
-<p>I updated the RAM launcher created in Week 2 of the coding period. The commands for configuring the browser screen dimensions for Gazebo GUI were updated. I successfully tested this launcher with the dummy client and was able to get a Gazebo Sim GUI on the web server.</p>
+<div class="caption">
+    Rescue People exercise
+</div>
 
-<div class="row mt-3 justify-content-center">
-    <div class="col-lg-10 mt-3 mt-md-0">
-        
+<p>However, I am currently facing two issues. The world starts at the default camera position rather than the one specified in the SDF file of the world. Also, I am encountering an error with the HAL functions: <code class="language-plaintext highlighter-rouge">Service drone0                                                             /controller/set_control_mode is not available</code></p>
 
 <figure>
-  
-    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week4vdo2.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls=""></video>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week7/2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
 
-  
   
 </figure>
 
-    </div>
-</div>
 
     </div>
   </article>
@@ -306,13 +293,13 @@
   
 
   <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-7/">Week 7: July 08 ~ July 14</a>
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/">Week 5 and Week 6: June 24 ~ July 07</a>
   </li>
 
   
 
   <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/">Week 5 and Week 6: June 24 ~ July 07</a>
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/">Week 4: June 17 ~ June 23</a>
   </li>
 
   
