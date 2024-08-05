@@ -1,22 +1,21 @@
 ---
 layout: post
 title: "Week 8 and Week 9: July 15 ~ July 28"
-date: 2024-07-08 21:01:00
-description: Adding documentation and resolving errors for the new exercise
+date: 2024-07-29 21:01:00
+description: Adding documentation and fixing errors for the Rescue People Gz Harmonic exercise
 tags: 
 categories: 
 --- 
 
 #### Objectives
 
-- [x] Installation of Gazebo11 along with Gazebo Harmonic for the RADI
-- [x] Updating CustomRobots Hooks and .env script for Gazebo Harmonic
-- [x] Migration of Rescue people world and Follow Road world to Gazebo Harmonic
-- [x] Creating a new DDBB entry for the Rescue People Harmonic exercise
+- [x] Adding documentation for creating a new RAM launcher and a guide for using the dummy RAM client
+- [x] Resolving issues with HAL functions in the Rescue People Gz Harmonic exercise
+- [x] Troubleshooting and resolving problems with image display on the GUI
+- [ ] Fixing issues with the functionality of the Play, Pause, and Reset buttons
 
-#### Issues Fixed/Created
+#### Issues Fixed
 
-- [https://github.com/JdeRobot/RoboticsInfrastructure/issues/425](https://github.com/JdeRobot/RoboticsInfrastructure/issues/425)
 - [https://github.com/JdeRobot/RoboticsApplicationManager/issues/143](https://github.com/JdeRobot/RoboticsApplicationManager/issues/143)
 - [https://github.com/JdeRobot/RoboticsApplicationManager/issues/142](https://github.com/JdeRobot/RoboticsApplicationManager/issues/142)
 
@@ -27,26 +26,23 @@ categories:
 
 #### Work Done
 
-The issue with the gazebo11-gz-cli PPA not supporting ROS packages on Jammy ([#1152](https://github.com/gazebo-tooling/release-tools/issues/1152)) has been resolved. This allowed me to successfully install Gazebo11 along with Gz Harmonic for the RADI. Previously, I encountered an issue during the installation of the `ros-humble-gazebo-ros` package, but that has now been fixed. Initially, I had temporarily commented out the sourcing and compiling of the workspaces. However, with the dependency installation issues resolved, I was able to build the workspaces successfully.
+I have added a guide to the RoboticsApplicationManager repository for using the dummy RAM client, which aids in developing and debugging new RAM launchers. Also, I documented the steps for creating a new RAM launcher, detailing the necessary changes and new files to be created for the `launch_world` and `prepare_visualization` transitions. This documentation is intended to assist new contributors in the development of RAM launchers.
 
-I updated the hooks for the `CustomRobots` package and the `.env` script for Gz Harmonic. During this migration, I discovered that Gz Sim does not have a separate model path, as it treats both models and worlds as resources. In Gazebo Classic, the environment variables `GAZEBO_MODEL_PATH` were used for models and `GAZEBO_RESOURCE_PATH` for worlds and some rendering resources. However, in Gz Sim, `GZ_SIM_RESOURCE_PATH` is used for worlds, models, and other resources.
+Last week, I encountered an issue with the HAL functions for the Rescue People Harmonic exercise. The problem arose because I renamed the folder containing the config files for the `as2_state_estimator` and `as2_motion_controller` packages from `ign` to `gzsim` but did not update the path in the `setup.py` file. Consequently, the config files were not found in the share directory during launch, causing the launch file to fail. Modifying the `setup.py` file of the `jderobot_drones` package resolved the issue.
 
-The world file for the rescue people exercise was migrated to Gz Harmonic using the previously migrated drone_assets.
-
-{% include figure.liquid loading="eager" path="assets/img//week56/1.png" class="img-fluid rounded z-depth-1" zoomable=true %}
-
-<div class="caption">
-    Rescue People world migrated to Gazebo Harmonic
+<div class="row mt-3 justify-content-center">
+    <div class="col-lg-10 mt-3 mt-md-0">
+        {% include video.liquid path='assets/video/week8vdo1.mp4' class='img-fluid rounded z-depth-1' controls='true' %}
+    </div>
 </div>
 
-Similarly, the world for the follow road exercise was also migrated to Gazebo Harmonic. During this process, I found that the `<road>` tag used in the Gazebo Classic world file is not supported in Gz Sim [(#2320)](https://github.com/gazebosim/gz-sim/issues/2320). To address this, I created two new models for the road track: one for curves and another for straight sections.
+However, I was still facing some issues. As it can be seen in the video above, I could use functions from HAL, but I was unable to display images using `GUI.showImage(cv2_image)` and `GUI.showLeftImage(cv2_image)`. Additionally, when running the code, the play button did not change to pause, and the reset button remained grayed out.
 
-{% include figure.liquid loading="eager" path="assets/img//week56/2.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+To resolve this, I first checked if data was being received on the two topics for images: `drone0/sensor_measurements/frontal_camera/image_raw` and `drone0/sensor_measurements/ventral_camera/image_raw`. I observed that no data was being published on `drone0/sensor_measurements/frontal_camera/image_raw`, but data was present on `drone0/sensor_measurements/front_camera/image_raw`. After discussing with mentors, I learned that the image topic for the front camera depends on how the camera is included in the simulation config file used for the `as2_gazebo_assets` package. If the payload's "model_name" is set to "frontal_camera," data is obtained on `/frontal_camera/image_raw`; if it is "front_camera," data is obtained on `/front_camera/image_raw`. I adjusted the `sim_config` file for the Rescue People Gz Harmonic Exercise accordingly. Also, I updated some outdated paths in the HTML file of the new exercise.
+Despite these changes, the image display issue remained unresolved. The mentors recommended examining the RoboticsApplicationManager code for potential issues.
 
-<div class="caption">
-    Follow Road world migrated to Gazebo Harmonic
-</div>
+I discovered that in the Robotics Application Manager, during the `prepare_visualization` transition from the `world_ready` to the `visualization_ready` state, a GUI server was started only if the `visualization_type` was `gazebo_rae`. I modified this configuration so that the GUI server also starts when the `visualization_type` is `gzsim_rae`. Following these changes, the images were displayed on the GUI; however, they were not updating and remained fixed at the initial image.
 
-A database entry was created for the Rescue People Gz Harmonic exercise. Also, a new Gz Sim world type for the exercise template was created by migrating the Django model. With this new world type, the Gz Sim launcher from RAM will be used to launch the Gazebo GUI.
+In addition to the issue of static images, the play/pause and reset buttons are still not functioning as expected.
 
-{% include figure.liquid loading="eager" path="assets/img//week56/3.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+{% include figure.liquid loading="eager" path="assets/img//week8/1.png" class="img-fluid rounded z-depth-1" zoomable=true %}
