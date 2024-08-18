@@ -1,12 +1,7 @@
 github_users:
-  - torvalds
-  - alshedivat
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - JdeRobot/RoboticsAcademy
+  - JdeRobot/RoboticsInfrastructure
+  - JdeRobot/RoboticsApplicationManager
+  - TheRoboticsClub/gsoc2024-Prajyot_Jadhav
