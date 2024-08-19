@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-08-19T16:14:55+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 11 and Week 12: August 05 ~ August 18</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12/" rel="alternate" type="text/html" title="Week 11 and Week 12: August 05 ~ August 18" /><published>2024-08-18T06:31:00+05:30</published><updated>2024-08-18T06:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12/"><![CDATA[<h4 id="objectives">Objectives</h4>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-08-19T16:35:40+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 11 and Week 12: August 05 ~ August 18</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12/" rel="alternate" type="text/html" title="Week 11 and Week 12: August 05 ~ August 18" /><published>2024-08-18T06:31:00+05:30</published><updated>2024-08-18T06:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12/"><![CDATA[<h4 id="objectives">Objectives</h4>
 
 <ul class="task-list">
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Creating a new RAM world type for Gz Sim Drone based exercises</li>
@@ -45,45 +45,45 @@
   <thead>
     <tr>
       <th style="text-align: left"><strong>Current State</strong></th>
-      <th style="text-align: center"><strong>Event</strong></th>
-      <th style="text-align: right"><strong>Next State</strong></th>
+      <th style="text-align: left"><strong>Event</strong></th>
+      <th style="text-align: left"><strong>Next State</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left">TAKING_OFF</td>
-      <td style="text-align: center">TOOK_OFF</td>
-      <td style="text-align: right">FLY</td>
+      <td style="text-align: left">TOOK_OFF</td>
+      <td style="text-align: left">FLY</td>
     </tr>
     <tr>
       <td style="text-align: left">FLY</td>
-      <td style="text-align: center">LAND</td>
-      <td style="text-align: right">LANDING</td>
+      <td style="text-align: left">LAND</td>
+      <td style="text-align: left">LANDING</td>
     </tr>
     <tr>
       <td style="text-align: left">LANDING</td>
-      <td style="text-align: center">LANDED</td>
-      <td style="text-align: right">LANDED</td>
+      <td style="text-align: left">LANDED</td>
+      <td style="text-align: left">LANDED</td>
     </tr>
     <tr>
       <td style="text-align: left">LANDED</td>
-      <td style="text-align: center">TAKE_OFF</td>
-      <td style="text-align: right">TAKING_OFF</td>
+      <td style="text-align: left">TAKE_OFF</td>
+      <td style="text-align: left">TAKING_OFF</td>
     </tr>
     <tr>
       <td style="text-align: left">LANDED</td>
-      <td style="text-align: center">DISARM</td>
-      <td style="text-align: right">DISARMED</td>
+      <td style="text-align: left">DISARM</td>
+      <td style="text-align: left">DISARMED</td>
     </tr>
     <tr>
       <td style="text-align: left">DISARMED</td>
-      <td style="text-align: center">ARM</td>
-      <td style="text-align: right">LANDED</td>
+      <td style="text-align: left">ARM</td>
+      <td style="text-align: left">LANDED</td>
     </tr>
     <tr>
       <td style="text-align: left">FLY, LANDING, LANDED, TAKING_OFF</td>
-      <td style="text-align: center">EMERGENCY</td>
-      <td style="text-align: right">EMERGENCY</td>
+      <td style="text-align: left">EMERGENCY</td>
+      <td style="text-align: left">EMERGENCY</td>
     </tr>
   </tbody>
 </table>

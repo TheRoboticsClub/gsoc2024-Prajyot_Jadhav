@@ -36,7 +36,7 @@ The Aerostack2 states and transitions are as follows:
 **Transitions:**
 
 | **Current State** | **Event** | **Next State** |
-| :----------- | :------------: | ------------: |
+| :----------- | :------------ | :------------ |
 | TAKING_OFF       |    TOOK_OFF    |       FLY |
 | FLY       |    LAND    |       LANDING |
 | LANDING       |    LANDED    |       LANDED |
