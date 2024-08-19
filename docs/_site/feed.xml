@@ -1,4 +1,134 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-08-19T02:49:35+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 10: July 29 ~ August 04</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-10/" rel="alternate" type="text/html" title="Week 10: July 29 ~ August 04" /><published>2024-08-06T02:31:00+05:30</published><updated>2024-08-06T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-10</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-10/"><![CDATA[<h4 id="objectives">Objectives</h4>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-08-19T16:14:55+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/feed.xml</id><title type="html">Prajyot Jadhav | JdeRobot x GSoC 2024</title><entry><title type="html">Week 11 and Week 12: August 05 ~ August 18</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12/" rel="alternate" type="text/html" title="Week 11 and Week 12: August 05 ~ August 18" /><published>2024-08-18T06:31:00+05:30</published><updated>2024-08-18T06:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12/"><![CDATA[<h4 id="objectives">Objectives</h4>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Creating a new RAM world type for Gz Sim Drone based exercises</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Addressing and fixing problems related to the Reset button’s operation</li>
+</ul>
+
+<h4 id="work-done">Work Done</h4>
+
+<p>In our previous meeting, the mentors recommended making changes to the existing Pull Requests by creating a separate launcher for drones for the <code class="language-plaintext highlighter-rouge">as2_gazebo_sim</code> file. Following this advice, I created a new world type, <code class="language-plaintext highlighter-rouge">Gz Sim Drones</code>, by migrating the Django model. This new world type launches a new <code class="language-plaintext highlighter-rouge">drones_gzsim</code> launcher, which in turn starts the Aerostack2 Gazebo Sim launch file. This approach ensures that the previous drone-based exercises remain unaffected, providing a fallback option in case any issues arise with the newly migrated exercise.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week12/frames.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+<p>Previously, for the Rescue People exercise, the drone’s position was reset to its initial location using hardcoded values. Pedro suggested an improved solution to make this approach adaptable for different drone-based exercises. As shown in the transform tree figure, there is a static <code class="language-plaintext highlighter-rouge">drone0/map</code> frame located at the initial spawn point of the quadrotor. By determining the transform between the <code class="language-plaintext highlighter-rouge">earth</code> frame (located at coordinates (0,0,0)) and the <code class="language-plaintext highlighter-rouge">drone0/map</code> frame, we can accurately calculate the quadrotor’s initial position. This position will then be used in the Gazebo service to set the quadrotor model’s pose.</p>
+
+<p>Regarding the issue where the quadrotor fails to take off after resetting, Pedro suggested that this might be due to the Aerostack2 state machine not updating post-reset.</p>
+
+<p>The Aerostack2 states and transitions are as follows:</p>
+
+<p><strong>States:</strong></p>
+<ul>
+  <li>TAKING_OFF</li>
+  <li>FLY</li>
+  <li>LANDING</li>
+  <li>LANDED</li>
+  <li>DISARMED</li>
+  <li>EMERGENCY</li>
+</ul>
+
+<p><strong>Transitions:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><strong>Current State</strong></th>
+      <th style="text-align: center"><strong>Event</strong></th>
+      <th style="text-align: right"><strong>Next State</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">TAKING_OFF</td>
+      <td style="text-align: center">TOOK_OFF</td>
+      <td style="text-align: right">FLY</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FLY</td>
+      <td style="text-align: center">LAND</td>
+      <td style="text-align: right">LANDING</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LANDING</td>
+      <td style="text-align: center">LANDED</td>
+      <td style="text-align: right">LANDED</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LANDED</td>
+      <td style="text-align: center">TAKE_OFF</td>
+      <td style="text-align: right">TAKING_OFF</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LANDED</td>
+      <td style="text-align: center">DISARM</td>
+      <td style="text-align: right">DISARMED</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DISARMED</td>
+      <td style="text-align: center">ARM</td>
+      <td style="text-align: right">LANDED</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FLY, LANDING, LANDED, TAKING_OFF</td>
+      <td style="text-align: center">EMERGENCY</td>
+      <td style="text-align: right">EMERGENCY</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When the drone’s position is reset to its initial location, it remains in the <code class="language-plaintext highlighter-rouge">FLY</code> state, preventing it from performing a takeoff. Therefore, the Aerostack2 state must also be updated to <code class="language-plaintext highlighter-rouge">LANDING</code> and then to <code class="language-plaintext highlighter-rouge">LANDED</code> during the reset process.</p>
+
+<p>To address this, I attempted to create a ROS2 service to reset the quadrotor’s pose and update the Aerostack2 state machine. Initially, I implemented the service within the <code class="language-plaintext highlighter-rouge">drone_wrapper</code> file but encountered an issue where the application would pause when the reset button was clicked, rendering the service unavailable. This occurs because the <code class="language-plaintext highlighter-rouge">terminate_application</code> function is triggered upon pressing the reset button, where the application first pauses before resetting.</p>
+
+<p>To resolve this, I created a new <code class="language-plaintext highlighter-rouge">DroneWrapper</code> object within the reset function before calling the service. However, this resulted in a black screen appearing on the VNC server instead of the expected Gazebo Sim simulation.</p>
+
+<p>To work around this, I created a new file, <code class="language-plaintext highlighter-rouge">drone_reset.py</code>, with a <code class="language-plaintext highlighter-rouge">quadrotor_reset</code> node specifically for the service. I then created a <code class="language-plaintext highlighter-rouge">DroneReset</code> class object in the reset function and called the ROS2 service.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week12/1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+<div class="caption">
+    \quadrotor_reset_pose ROS2 service
+</div>
+
+<p>Although the service is now available, it’s currently getting stuck at <code class="language-plaintext highlighter-rouge">requester: making request: std_srvs.srv.Trigger_Request()</code>.</p>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week12/2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>]]></content><author><name></name></author><summary type="html"><![CDATA[Creating a new RAM world type and fixing issues with Reset functionality for the Gz Harmonic exercise]]></summary></entry><entry><title type="html">Week 10: July 29 ~ August 04</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-10/" rel="alternate" type="text/html" title="Week 10: July 29 ~ August 04" /><published>2024-08-06T02:31:00+05:30</published><updated>2024-08-06T02:31:00+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-10</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-10/"><![CDATA[<h4 id="objectives">Objectives</h4>
 
 <ul class="task-list">
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Resolving functionality issues with the Play and Pause buttons</li>
@@ -70,7 +200,7 @@
     Play/Pause Functionality Demonstration
 </div>
 
-<p>However, when I applied similar updates to the <code class="language-plaintext highlighter-rouge">reset_sim</code> function, the simulation didn’t perform as expected, and Gazebo Sim crashed. The service worked fine with basic simulation environments but specifically failed when using Aerostack2. After discussing this with the mentors, we hypothesized that the issue might be related to the Aerostack2 bridges not being reset correctly.</p>
+<p>However, when I applied similar updates to the <code class="language-plaintext highlighter-rouge">reset_sim</code> function, the simulation didn’t perform as expected, and Gazebo Sim crashed. The service worked fine with basic simulation environments but specifically failed when using Aerostack2. After discussing this with the mentors, we suspected that the issue might be related to the Aerostack2 bridges not being reset correctly.</p>
 
 <p>To work around this problem, I initially attempted to delete the quadrotor model and respawn it at its initial position, but this also caused the simulation to crash. Instead, I implemented a solution that involves resetting the pose of the quadrotor model to its initial position when the reset button is clicked. This approach works well since, in the Rescue People exercise, the quadrotor is the only dynamic model in the simulation environment.</p>
 
@@ -625,17 +755,4 @@ For Gazebo sim the <code class="language-plaintext highlighter-rouge">gz sim</co
 
 <p>In the weekly meeting, we discussed the project’s Contributing Guidelines, to ensure I follow the best practices while contributing to the codebase. Additionally, the mentors introduced me to the Scrum methodology, which will be used to manage my contributions and track progress efficiently.</p>
 
-<p>The project timeline was also reviewed. The mentors also discussed a detailed work plan outlining the steps and deliverables for each phase.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Week 3 of the community bonding period]]></summary></entry><entry><title type="html">Community Bonding: May 6 ~ May 19</title><link href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-1-and-2/" rel="alternate" type="text/html" title="Community Bonding: May 6 ~ May 19" /><published>2024-05-22T22:10:16+05:30</published><updated>2024-05-22T22:10:16+05:30</updated><id>http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-1-and-2</id><content type="html" xml:base="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/community-bonding-week-1-and-2/"><![CDATA[<p>I’m excited to be working with the JdeRobot community on the Robotics-Academy project. Google Summer of Code begins with a community bonding period, during which we familiarize ourselves with the community and explore the project to gain a better understanding.</p>
-
-<h4 id="objectives">Objectives</h4>
-
-<ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Set up blog website using Jekyll and Github Pages</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Write a first blog for the community bonding period</li>
-</ul>
-
-<p>This week, we had our first official meeting where we introduced ourselves and the mentors reviewed the program’s logistics. In addition to my project mentors, I also got to know the other contributors selected for GSoC 2024 JdeRobot, as well as other members of the organization.</p>
-
-<p>Before the official start of GSoC, I had already been using Robotics-Academy. I contributed by opening GitHub issues and submitting pull requests (<a href="https://github.com/JdeRobot/RoboticsAcademy/pull/2462">#2462</a>, <a href="https://github.com/JdeRobot/RoboticsAcademy/pull/2460">#2460</a>). These contributions were for the RADI version 3.x.x, which is based on ROS Noetic.</p>
-
-<p>Also, the GSoC 2024 Contributor Summit was organized by the GSoC team. It included talks on AI and open source, security, OSS licensing, and diversity, equity, and inclusion (DEI), followed by Q&amp;A sessions with the speakers. It was an informative and inspiring event for all the participants.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Week 1 and 2 of the community bonding period]]></summary></entry></feed>
+<p>The project timeline was also reviewed. The mentors also discussed a detailed work plan outlining the steps and deliverables for each phase.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Week 3 of the community bonding period]]></summary></entry></feed>

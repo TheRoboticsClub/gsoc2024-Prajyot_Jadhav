@@ -67,7 +67,7 @@ I then updated the `unpause_sim` and `pause_sim` functions in the RoboticsApplic
     Play/Pause Functionality Demonstration
 </div>
 
-However, when I applied similar updates to the `reset_sim` function, the simulation didn't perform as expected, and Gazebo Sim crashed. The service worked fine with basic simulation environments but specifically failed when using Aerostack2. After discussing this with the mentors, we hypothesized that the issue might be related to the Aerostack2 bridges not being reset correctly.
+However, when I applied similar updates to the `reset_sim` function, the simulation didn't perform as expected, and Gazebo Sim crashed. The service worked fine with basic simulation environments but specifically failed when using Aerostack2. After discussing this with the mentors, we suspected that the issue might be related to the Aerostack2 bridges not being reset correctly.
 
 To work around this problem, I initially attempted to delete the quadrotor model and respawn it at its initial position, but this also caused the simulation to crash. Instead, I implemented a solution that involves resetting the pose of the quadrotor model to its initial position when the reset button is clicked. This approach works well since, in the Rescue People exercise, the quadrotor is the only dynamic model in the simulation environment.
 

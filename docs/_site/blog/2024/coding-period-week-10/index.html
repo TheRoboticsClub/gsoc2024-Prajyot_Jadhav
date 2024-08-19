@@ -145,6 +145,8 @@
             
           
             
+          
+            
               
                 <li class="nav-item ">
                   
@@ -295,7 +297,7 @@
     Play/Pause Functionality Demonstration
 </div>
 
-<p>However, when I applied similar updates to the <code class="language-plaintext highlighter-rouge">reset_sim</code> function, the simulation didn’t perform as expected, and Gazebo Sim crashed. The service worked fine with basic simulation environments but specifically failed when using Aerostack2. After discussing this with the mentors, we hypothesized that the issue might be related to the Aerostack2 bridges not being reset correctly.</p>
+<p>However, when I applied similar updates to the <code class="language-plaintext highlighter-rouge">reset_sim</code> function, the simulation didn’t perform as expected, and Gazebo Sim crashed. The service worked fine with basic simulation environments but specifically failed when using Aerostack2. After discussing this with the mentors, we suspected that the issue might be related to the Aerostack2 bridges not being reset correctly.</p>
 
 <p>To work around this problem, I initially attempted to delete the quadrotor model and respawn it at its initial position, but this also caused the simulation to crash. Instead, I implemented a solution that involves resetting the pose of the quadrotor model to its initial position when the reset button is clicked. This approach works well since, in the Rescue People exercise, the quadrotor is the only dynamic model in the simulation environment.</p>
 
@@ -349,6 +351,12 @@
   
 
   <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12/">Week 11 and Week 12: August 05 ~ August 18</a>
+  </li>
+
+  
+
+  <li class="my-2">
     <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-8-9/">Week 8 and Week 9: July 15 ~ July 28</a>
   </li>
 
@@ -368,12 +376,6 @@
 
   <li class="my-2">
     <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/">Week 4: June 17 ~ June 23</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/">Week 3: June 10 ~ June 16</a>
   </li>
 
 
