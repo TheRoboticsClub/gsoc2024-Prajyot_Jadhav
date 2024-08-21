@@ -17,12 +17,12 @@
   
   
     
-      Week 3: June 10 ~ June 16 | Prajyot Jadhav | JdeRobot x GSoC 2024
+      report | Prajyot Jadhav | JdeRobot x GSoC 2024
     
   
 </title>
 <meta name="author" content="JdeRobot | GSoC 2024">
-<meta name="description" content="Migration of drone_assets to Gazebo Harmonic">
+<meta name="description" content="">
 
 
 
@@ -38,6 +38,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
 
 <!-- Bootstrap Table -->
+
+  <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/bootstrap-table.min.css" integrity="sha256-uRX+PiRTR4ysKFRCykT8HLuRCub26LgXJZym3Yeom1c=" crossorigin="anonymous">
 
 
 <!-- Fonts & Icons -->
@@ -58,7 +60,7 @@
   <link rel="shortcut icon" href="/gsoc2024-Prajyot_Jadhav/assets/img/file.png?a4d243233aa137889e20a6fc4a0d83a2">
 
 <link rel="stylesheet" href="/gsoc2024-Prajyot_Jadhav/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/">
+<link rel="canonical" href="http://localhost:4000/gsoc2024-Prajyot_Jadhav/report/">
 
 <!-- Dark Mode -->
 <script src="/gsoc2024-Prajyot_Jadhav/assets/js/theme.js?a5ca4084d3b81624bcfa01156dae2b8e"></script>
@@ -132,6 +134,8 @@
             
           
             
+          
+            
               
                 <li class="nav-item ">
                   
@@ -159,9 +163,11 @@
           
             
               
-                <li class="nav-item ">
+                <li class="nav-item active">
                   
                   <a class="nav-link" href="/gsoc2024-Prajyot_Jadhav/report/">report
+                    
+                      <span class="sr-only">(current)</span>
                     
                   </a>
                 </li>
@@ -204,18 +210,22 @@
 
 
 
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">Week 3: June 10 ~ June 16</h1>
-    <p class="post-meta">
-      Created in June 18, 2024
+<div class="report">
+  <header class="report-header">
+    <h1 class="report-title">
+      
+        Final Report
+      
+    </h1>
+    <p class="report-meta">
+      Created in August 21, 2024
       
       
       
     </p>
-    <p class="post-tags">
+    <p class="report-tags">
       
-        <a href="/gsoc2024-Prajyot_Jadhav/blog/2024"> <i class="fa-solid fa-calendar fa-sm"></i> 2024 </a>
+        <i class="fa-solid fa-calendar fa-sm"></i> 2024
       
       
 
@@ -223,99 +233,10 @@
     </p>
   </header>
 
-  <article class="post-content">
+  <article class="report-content">
     
     <div id="markdown-content">
-      <p>The goal for this week was to migrate the models in <a href="https://github.com/JdeRobot/RoboticsInfrastructure/tree/humble-devel/CustomRobots/drone_assets" rel="external nofollow noopener" target="_blank">drone_assets</a> to Gazebo Harmonic.</p>
-
-<h4 id="objectives">Objectives</h4>
-
-<ul class="task-list">
-  <li class="task-list-item">
-<input type="checkbox" class="task-list-item-checkbox" disabled checked>drone_assets migration to Gz Harmonic</li>
-</ul>
-
-<h4 id="issues-fixed">Issues Fixed</h4>
-
-<ul>
-  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/401" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/issues/401</a></li>
-</ul>
-
-<h4 id="prs-created">PRs Created</h4>
-
-<ul>
-  <li><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/402" rel="external nofollow noopener" target="_blank">https://github.com/JdeRobot/RoboticsInfrastructure/pull/402</a></li>
-</ul>
-
-<h4 id="work-done">Work Done</h4>
-
-<ul>
-  <li>Updated the simple_circuit_followingcam.launch.py file for dummy client testing</li>
-  <li>Determined the issue with commands used for configuring the browser screen dimensions for Gazebo GUI</li>
-  <li>Migrated drone_assets to Gazebo Harmonic</li>
-</ul>
-
-<p>Last week, I encountered difficulties while testing the new RAM launcher with the dummy client.  During our meeting, Pedro guided me on debugging and development with the dummy client. In the dummy client, for the second step of <code class="language-plaintext highlighter-rouge">launch_world</code>, the <code class="language-plaintext highlighter-rouge">simple_circuit_followingcam.launch.py</code> file is launched. My focus was on modifying this file to make it compatible with Gazebo Harmonic. I updated the file, replacing <code class="language-plaintext highlighter-rouge">gazebo_ros</code> with <code class="language-plaintext highlighter-rouge">ros_gz</code> and the <code class="language-plaintext highlighter-rouge">gzserver.launch.py</code> file with the corresponding one from the <code class="language-plaintext highlighter-rouge">ros_gz</code> package. Using the dummy client, I successfully executed the first two steps: <code class="language-plaintext highlighter-rouge">connect</code> and <code class="language-plaintext highlighter-rouge">launch_world</code>. The third step, <code class="language-plaintext highlighter-rouge">prepare_visualization</code>, which launches the Gazebo GUI, was commented out. I managed to launch the Gazebo GUI from another terminal inside the container, but encountered a black screen. Running the <code class="language-plaintext highlighter-rouge">gz sim -g</code> command with the <code class="language-plaintext highlighter-rouge">-v4</code> argument showed that the GUI was requesting a list of world names and the server was downloading resources. I am currently working on resolving this issue.</p>
-
-<div class="row mt-3 justify-content-center">
-    <div class="col-lg-10 mt-3 mt-md-0">
-        
-
-<figure>
-  
-    <video src="/gsoc2024-Prajyot_Jadhav/assets/video/week3vdo1.mp4" class="img-fluid rounded z-depth-1" width="auto" height="auto" controls=""></video>
-
-  
-  
-</figure>
-
-    </div>
-</div>
-
-<!-- <div class="caption">
-    New RADI with Gazebo Harmonic (with xhost +)
-</div> -->
-
-<p>Previously, I had found that the default configuration file for the Gazebo SIM GUI is located at <code class="language-plaintext highlighter-rouge">$HOME/.gz/gui/default.config</code>. However, for Gazebo Harmonic, the correct path is <code class="language-plaintext highlighter-rouge">$HOME/.gz/sim/&lt;#&gt;/gui.config</code> (where &lt;#&gt; represents Gazebo Sim’s major version). I attempted to launch an empty_world with a modified config file specifying only the window dimensions. However, I observed that a specific set of plugins is necessary to launch an empty_world, and if these are missing, the default config file is used. My next task would be to create a new config file containing only the required plugins, removing unnecessary elements from the Gazebo GUI.</p>
-
-<p>While migrating models in drone_assets to Gazebo Harmonic, I discovered that Gazebo SIM does not support Ogre material files like Classic does, due to its compatibility with multiple rendering engines. In Gazebo Sim, textures can be passed as the albedo map. Therefore, in the sdf files of the models the following code:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;material&gt;
-  &lt;script&gt;
-    &lt;uri&gt;model://number1/materials/scripts&lt;/uri&gt;
-    &lt;uri&gt;model://number1/materials/textures&lt;/uri&gt;
-    &lt;name&gt;Number/One&lt;/name&gt;
-  &lt;/script&gt;
-&lt;/material&gt;
-</code></pre></div></div>
-<p>was replaced with:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;material&gt;
-  &lt;pbr&gt;
-    &lt;metal&gt;
-      &lt;albedo_map&gt;model://number1/materials/textures/texture.png&lt;/albedo_map&gt;
-    &lt;/metal&gt;
-  &lt;/pbr&gt;
-&lt;/material&gt;
-</code></pre></div></div>
-<p>I added new models for ocean and polaris_ranger_ev. The models yet to be migrated are: gas_station, house_3, UAVs (iris and typhoon h480). Also the system plugin <code class="language-plaintext highlighter-rouge">libwall2plugin.so</code> used in the cylinder and wall models is to be migrated.</p>
-
-<figure>
-  <picture>
-    <!-- Auto scaling with imagemagick -->
-    <!--
-      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
-      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
-    -->
-    
-    <img src="/gsoc2024-Prajyot_Jadhav/assets/img//week3/2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" data-zoomable="" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-  </picture>
-
-  
-</figure>
-
-<div class="caption">
-    Models from Rescue People exercise migrated to Gazebo Harmonic
-</div>
+      
 
     </div>
   </article>
@@ -327,46 +248,6 @@
   
     
       
-
-  
-    
-    <br>
-    <hr>
-    <br>
-    <ul class="list-disc pl-8"></ul>
-
-    <!-- Adds related posts to the end of an article -->
-    <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
-    <p class="mb-2">Here are some more articles you might like to read next:</p>
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12/">Week 11 and Week 12: August 05 ~ August 18</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-10/">Week 10: July 29 ~ August 04</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-8-9/">Week 8 and Week 9: July 15 ~ July 28</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-7/">Week 7: July 08 ~ July 14</a>
-  </li>
-
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/">Week 5 and Week 6: June 24 ~ July 07</a>
-  </li>
 
 
     
@@ -436,6 +317,9 @@
 
 
 <!-- Bootstrap Table -->
+
+  <!-- Bootstrap Table doesn't go well with diff2html -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.22.4/dist/bootstrap-table.min.js" integrity="sha256-4rppopQE9POKfukn2kEvhJ9Um25Cf6+IDVkARD0xh78=" crossorigin="anonymous"></script>
 
 
 <!-- Load Common JS -->
