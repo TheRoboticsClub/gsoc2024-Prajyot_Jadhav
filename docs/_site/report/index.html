@@ -262,9 +262,9 @@
 > **Link to GSoC Project**: [Robotics-Academy: Migration to Gazebo Harmonic](https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST) -->
 
 <p><strong>Organization</strong>: <a href="https://jderobot.github.io/" rel="external nofollow noopener" target="_blank">JdeRobot</a><br>
-<strong>Mentors</strong>: Pedro Arias-Perez, Pawan Wadhwani, Miguel Fernandez-Cortizas, Apoorv Garg<br>
+<strong>Mentors</strong>: Pedro Arias Pérez, Pawan Wadhwani, Miguel Fernández Cortizas, Apoorv Garg<br>
 <strong>Student</strong>: Prajyot Jadhav (<a href="https://github.com/Arcane-01" rel="external nofollow noopener" target="_blank">GitHub</a>, <a href="https://www.linkedin.com/in/prajyot-jadhav-90921a241/" rel="external nofollow noopener" target="_blank">LinkedIn</a>)<br>
-<strong>Link to GSoC Project</strong>: <a href="https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST" rel="external nofollow noopener" target="_blank">Robotics-Academy: Migration to Gazebo Harmonic</a></p>
+<strong>Link to GSoC Project Page</strong>: <a href="https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST" rel="external nofollow noopener" target="_blank">Robotics-Academy: Migration to Gazebo Harmonic</a></p>
 
 <p>Hello everyone,</p>
 
@@ -458,7 +458,7 @@
 
 <p>It has been observed that the newly migrated Rescue People exercise, which uses Gazebo Harmonic, takes significantly longer to load compared to exercises based on Gazebo Classic. Also, the Docker container created from the new Docker files takes more time to close. Future work will involve identifying the cause of these delays and addressing them.</p>
 
-<p>For the Rescue People exercise migrated to Gazebo Harmonic, the reset button does not function as expected. Although the drone’s position resets to the initial state, there are issues with entering takeoff mode after a reset. This problem arises because Aerostack2’s state machine is not updated when the exercise is reset. Further details can be found in the Week-11 and Week-12 blog posts. Resolving this issue will be a key goal.</p>
+<p>For the Rescue People exercise migrated to Gazebo Harmonic, the reset button does not function as expected. Although the drone’s position resets to the initial state, there are issues with entering takeoff mode after a reset. This problem arises because Aerostack2’s state machine is not updated when the exercise is reset. Further details can be found in the <a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12/" rel="external nofollow noopener" target="_blank">Week-11 and Week-12 blog post</a>. Resolving this issue will be a key goal.</p>
 
 <p>The previous Rescue People exercise based on Gazebo Classic has an issue where the gzclient is not launched correctly after the file modifications. It is essential to ensure that older drone-based exercises remain unaffected to provide a fallback option if issues arise with the newly migrated exercise. Identifying the exact cause and resolving this issue is essential.</p>
 

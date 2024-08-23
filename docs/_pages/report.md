@@ -26,7 +26,7 @@ images:
 > **Link to GSoC Project**: [Robotics-Academy: Migration to Gazebo Harmonic](https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST) -->
 
 **Organization**: [JdeRobot](https://jderobot.github.io/)  
-**Mentors**: Pedro Arias Pérez, Pawan Wadhwani, Miguel Fernández Cortizas, Apoorv Garg
+**Mentors**: Pedro Arias Pérez, Pawan Wadhwani, Miguel Fernández Cortizas, Apoorv Garg  
 **Student**: Prajyot Jadhav ([GitHub](https://github.com/Arcane-01), [LinkedIn](https://www.linkedin.com/in/prajyot-jadhav-90921a241/))  
 **Link to GSoC Project Page**: [Robotics-Academy: Migration to Gazebo Harmonic](https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST)
 
