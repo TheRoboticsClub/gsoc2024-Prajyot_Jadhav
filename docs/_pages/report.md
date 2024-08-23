@@ -60,7 +60,7 @@ This stage involved updating the drone-based exercise models and creating new SD
 
 In this stage, I installed Gazebo Harmonic within the Docker image to support the migration process. Given that most Robotics-Academy exercises are currently in Gazebo 11, I ensured compatibility by installing both Gazebo Harmonic and Gazebo 11. This approach allows exercises still using Gazebo 11 to remain operational. Additionally, I updated hooks for certain packages and modified files, such as the Robotics Application Manager file, to support the new Gazebo Sim exercises.
 
-#### Stage 4: Modifying the Database and Adding New Fields for Gazebo Sim Exercises
+#### Stage 3: Modifying the Database and Adding New Fields for Gazebo Sim Exercises
 
 In Robotics-Academy, each exercise is represented as a database entry, including fields such as "visualisation" and "world". These fields determine the launch files used by the Robotics Application Manager. I updated the Django model to include new options for "visualisation" and "world" specific to Gazebo Sim exercises. A new entry was also created for the Rescue People exercise, which was migrated to Gazebo Harmonic.
 
@@ -175,6 +175,14 @@ Over the summer, I submitted 14 pull requests, all of which have been merged. Th
     </tbody>
 </table>
 <hr>
+
+### Video
+
+<div class="row mt-3 justify-content-center">
+    <div class="col-lg-12 mt-3 mt-md-0">
+        {% include video.liquid path='assets/video/GSoCVideo.mp4' class='img-fluid rounded z-depth-1' controls='true' %}
+    </div>
+</div>
 
 ### Future Work
 
