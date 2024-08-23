@@ -78,6 +78,15 @@
 
 
 
+  <!-- Image comparison slider -->
+  
+    <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8.0.6/dist/styles.min.css" integrity="sha256-3qTIuuUWIFnnU3LpQMjqiXc0p09rvd0dmj+WkpQXSR8=" crossorigin="anonymous">
+  
+  <!-- Image slider -->
+  
+    <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css" integrity="sha256-yUoNxsvX+Vo8Trj3lZ/Y5ZBf8HlBFsB6Xwm7rH75/9E=" crossorigin="anonymous">
+  
+
 
 
 
@@ -235,8 +244,233 @@
 
   <article class="report-content">
     
+      <div id="table-of-contents">
+        <ul id="toc" class="section-nav">
+</ul>
+      </div>
+      <hr>
+    
+
     <div id="markdown-content">
-      
+      <h2 id="robotics-academy-migration-to-gazebo-harmonic">Robotics-Academy: Migration to Gazebo Harmonic</h2>
+
+<hr>
+
+<!-- > **Organization**: [JdeRobot](https://jderobot.github.io/)  
+> **Mentors**: Pedro Arias-Perez, Pawan Wadhwani, Miguel Fernandez-Cortizas, Apoorv Garg  
+> **Student**: Prajyot Jadhav ([GitHub](https://github.com/Arcane-01), [LinkedIn](https://www.linkedin.com/in/prajyot-jadhav-90921a241/))  
+> **Link to GSoC Project**: [Robotics-Academy: Migration to Gazebo Harmonic](https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST) -->
+
+<p><strong>Organization</strong>: <a href="https://jderobot.github.io/" rel="external nofollow noopener" target="_blank">JdeRobot</a><br>
+<strong>Mentors</strong>: Pedro Arias-Perez, Pawan Wadhwani, Miguel Fernandez-Cortizas, Apoorv Garg<br>
+<strong>Student</strong>: Prajyot Jadhav (<a href="https://github.com/Arcane-01" rel="external nofollow noopener" target="_blank">GitHub</a>, <a href="https://www.linkedin.com/in/prajyot-jadhav-90921a241/" rel="external nofollow noopener" target="_blank">LinkedIn</a>)<br>
+<strong>Link to GSoC Project</strong>: <a href="https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST" rel="external nofollow noopener" target="_blank">Robotics-Academy: Migration to Gazebo Harmonic</a></p>
+
+<p>Hello everyone,</p>
+
+<p>This summer, I had the opportunity to contribute to Robotics-Academy through the Google Summer of Code 2024 program. My project focused on upgrading the Robotics-Academy’s Docker-based framework by migrating it to Gazebo Harmonic from Gazebo Classic, ensuring the platform’s long-term compatibility. My project proposal can be found <a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/assets/pdf/JdeRobot_proposal.pdf" rel="external nofollow noopener" target="_blank">here</a>.</p>
+
+<h3 id="about-me">About me</h3>
+
+<p>I have a Bachelor’s degree in Electronics and Communication Engineering from Visvesvaraya National Institute of Technology, India. My interests lie in robotics and control systems. Google Summer of Code 2024 marked my first substantial contribution to open source, and it was an amazing experience.</p>
+
+<h3 id="about-the-project">About the Project</h3>
+
+<p>JdeRobot’s Robotics-Academy provides exercises to learn robotics and AI while abstracting students from the complexities of the framework. The dockerized containers and web templates offer cross-platform functionality, simplifying the setup process. This allows beginners to focus on coding and testing their algorithms without dealing with extensive software installation.</p>
+
+<p>Currently, Robotics-Academy uses Gazebo11 in the Robotics-Academy Docker Image (RADI) framework. The primary goal of my project was to migrate the RADI to Gazebo Harmonic and update exercises accordingly. Also, I replaced PX4 with the lighter Aerostack2 Gazebo platform for drone-based exercises, enhancing efficiency.</p>
+
+<h3 id="contribution-summary">Contribution Summary</h3>
+<hr>
+
+<h4 id="stage-1-modifying-models-and-world-sdf-files">Stage 1: Modifying Models and World SDF Files</h4>
+
+<swiper-container keyboard="true" navigation="true" pagination="true" pagination-clickable="true" pagination-dynamic-bullets="true" rewind="true">
+   <swiper-slide>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img/week56/2.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+</swiper-slide>
+  <swiper-slide>
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+    <img src="/gsoc2024-Prajyot_Jadhav/assets/img/week56/1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+</swiper-slide>
+</swiper-container>
+
+<p>This stage involved updating the drone-based exercise models and creating new SDF files for the worlds to ensure compatibility with the latest version of Gazebo. For models that were challenging to migrate and for which new open-source alternatives were available, I incorporated these new models. Adjustments were made to plugins, parameters, and configurations in the SDF files to align with the updated Gazebo setup.</p>
+
+<h4 id="stage-2-installing-dependencies-and-updating-files">Stage 2: Installing Dependencies and Updating Files</h4>
+
+<p>In this stage, I installed Gazebo Harmonic within the Docker image to support the migration process. Given that most Robotics-Academy exercises are currently in Gazebo 11, I ensured compatibility by installing both Gazebo Harmonic and Gazebo 11. This approach allows exercises still using Gazebo 11 to remain operational. Additionally, I updated hooks for certain packages and modified files, such as the Robotics Application Manager file, to support the new Gazebo Sim exercises.</p>
+
+<h4 id="stage-4-modifying-the-database-and-adding-new-fields-for-gazebo-sim-exercises">Stage 4: Modifying the Database and Adding New Fields for Gazebo Sim Exercises</h4>
+
+<p>In Robotics-Academy, each exercise is represented as a database entry, including fields such as “visualisation” and “world”. These fields determine the launch files used by the Robotics Application Manager. I updated the Django model to include new options for “visualisation” and “world” specific to Gazebo Sim exercises. A new entry was also created for the Rescue People exercise, which was migrated to Gazebo Harmonic.</p>
+
+<h4 id="stage-4-creating-new-launchers-for-gazebo-sim-exercises">Stage 4: Creating New Launchers for Gazebo Sim Exercises</h4>
+
+<p>For the newly added “visualisation” and “world” fields related to Gazebo Sim exercises, I developed new launchers within the Robotics Application Manager. These launchers facilitate the launch of the Gazebo Sim GUI server and the Aerostack2 launch file. The Aerostack2 launcher was updated to support Gazebo Sim and to replace PX4 with the Aerostack2 Gazebo Platform.</p>
+
+<h4 id="on-github">On GitHub</h4>
+
+<p>Over the summer, I submitted 14 pull requests, all of which have been merged. These pull requests addressed 12 issues, and my contributions will be incorporated into the upcoming releases of JdeRobot’s Robotics-Academy.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Pull Request</th>
+            <th>Solves Issue</th>
+            <th>Description</th>
+            <th>More</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+             <td colspan="4"><a href="https://github.com/JdeRobot/RoboticsAcademy" rel="external nofollow noopener" target="_blank">Robotics-Academy</a></td>
+        </tr> 
+        <tr>
+            <td><a href="https://github.com/JdeRobot/RoboticsAcademy/pull/2542" rel="external nofollow noopener" target="_blank">#2542</a></td>
+            <td><a href="https://github.com/JdeRobot/RoboticsAcademy/issues/2540" rel="external nofollow noopener" target="_blank">#2540</a></td>
+            <td>New Robotics-Academy Docker Image including Gazebo Harmonic</td>
+            <td><a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-1/" rel="external nofollow noopener" target="_blank">Week-1 Blog</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://github.com/JdeRobot/RoboticsAcademy/pull/2602" rel="external nofollow noopener" target="_blank">#2602</a></td>
+            <td><a href="https://github.com/JdeRobot/RoboticsAcademy/issues/2569" rel="external nofollow noopener" target="_blank">#2569</a></td>
+            <td>Updated Dockerfiles for Gazebo11 installation along with Gazebo Harmonic</td>
+            <td><a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/" rel="external nofollow noopener" target="_blank">Week-5, 6 Blog</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://github.com/JdeRobot/RoboticsAcademy/pull/2635" rel="external nofollow noopener" target="_blank">#2635</a></td>
+            <td><a href="https://github.com/JdeRobot/RoboticsAcademy/issues/2634" rel="external nofollow noopener" target="_blank">#2634</a></td>
+            <td>
+                Created a new database entry and added files for the Rescue People Gz Harmonic Exercise<br>
+                New "visualisation" and "world" types for Gazebo Sim
+            </td>
+            <td>
+<a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/" rel="external nofollow noopener" target="_blank">Week-5, 6 Blog</a>, 
+            <a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-7/" rel="external nofollow noopener" target="_blank">Week-7 Blog</a>
+            </td>
+        </tr>
+        <tr>
+             <td colspan="4"><a href="https://github.com/JdeRobot/RoboticsInfrastructure" rel="external nofollow noopener" target="_blank">Robotics Infrastructure</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/402" rel="external nofollow noopener" target="_blank">#402</a></td>
+            <td><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/401" rel="external nofollow noopener" target="_blank">#401</a></td>
+            <td>Updated SDFFormat files of models used in drone exercises to be compatible with new Gazebo Sim</td>
+            <td><a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-3/" rel="external nofollow noopener" target="_blank">Week-3 Blog</a></td>
+        </tr>
+        <tr>
+            <td><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/400" rel="external nofollow noopener" target="_blank">#400</a></td>
+            <td>-</td>
+            <td>Updated launch files for testing new RAM launcher with a dummy client</td>
+            <td><a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/" rel="external nofollow noopener" target="_blank">Week-4 Blog</a></td>
+        </tr>
+        <tr>
+            <td>
+<a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/410" rel="external nofollow noopener" target="_blank">#410</a>, <a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/419" rel="external nofollow noopener" target="_blank">#419</a>
+            </td>
+            <td>
+<a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/409" rel="external nofollow noopener" target="_blank">#409</a>, <a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/415" rel="external nofollow noopener" target="_blank">#415</a>
+            </td>
+            <td>New worlds for Rescue People and Follow Road exercises compatible with Gazebo Harmonic</td>
+            <td><a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/" rel="external nofollow noopener" target="_blank">Week-5, 6 Blog</a></td>
+        </tr>
+                <tr>
+            <td>
+<a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/412" rel="external nofollow noopener" target="_blank">#412</a>, <a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/413" rel="external nofollow noopener" target="_blank">#413</a>
+            </td>
+            <td>
+<a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/403" rel="external nofollow noopener" target="_blank">#403</a>, <a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/406" rel="external nofollow noopener" target="_blank">#406</a>
+            </td>
+            <td>Updated CustomRobots Hooks and .env script for Gazebo Harmonic</td>
+            <td><a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-5-6/" rel="external nofollow noopener" target="_blank">Week-5, 6 Blog</a></td>
+        </tr>
+                <tr>
+            <td><a href="https://github.com/JdeRobot/RoboticsInfrastructure/pull/423" rel="external nofollow noopener" target="_blank">#423</a></td>
+            <td><a href="https://github.com/JdeRobot/RoboticsInfrastructure/issues/422" rel="external nofollow noopener" target="_blank">#422</a></td>
+            <td>New Aerostack2 launcher for Gazebo Sim; PX4 replaced with Aerostack2 Gazebo Platform</td>
+            <td><a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-7/" rel="external nofollow noopener" target="_blank">Week-7 Blog</a></td>
+        </tr>
+        <tr>
+             <td colspan="4">
+<a href="https://github.com/JdeRobot/RoboticsApplicationManager" rel="external nofollow noopener" target="_blank">Robotics Application Manager</a>(RAM)</td>
+        </tr>
+        <tr>
+            <td><a href="https://github.com/JdeRobot/RoboticsApplicationManager/pull/136" rel="external nofollow noopener" target="_blank">#136</a></td>
+            <td><a href="https://github.com/JdeRobot/RoboticsApplicationManager/issues/135" rel="external nofollow noopener" target="_blank">#135</a></td>
+            <td>New RAM launcher for Gazebo Harmonic</td>
+            <td>
+<a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-2/" rel="external nofollow noopener" target="_blank">Week-2 Blog</a> , <a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-4/" rel="external nofollow noopener" target="_blank">Week-4 Blog</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<a href="https://github.com/JdeRobot/RoboticsApplicationManager/pull/143" rel="external nofollow noopener" target="_blank">#143</a>, <a href="https://github.com/JdeRobot/RoboticsApplicationManager/pull/148" rel="external nofollow noopener" target="_blank">#148</a>
+            </td>
+            <td>
+<a href="https://github.com/JdeRobot/RoboticsApplicationManager/issues/142" rel="external nofollow noopener" target="_blank">#142</a>, <a href="https://github.com/JdeRobot/RoboticsApplicationManager/issues/143" rel="external nofollow noopener" target="_blank">#143</a>
+</td>
+            <td>Added documentation for creating a new RAM launcher and a guide for using the dummy RAM client</td>
+            <td>
+<a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-8-9/" rel="external nofollow noopener" target="_blank">Week-8, 9 Blog</a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="https://github.com/JdeRobot/RoboticsApplicationManager/pull/138" rel="external nofollow noopener" target="_blank">#138</a></td>
+            <td>-</td>
+            <td>Modified and created launchers for new Gazebo Sim "visualization" and "world" types<br>
+            Updated play, pause, and reset functions for Gazebo Sim
+            </td>
+            <td>
+<a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-7/" rel="external nofollow noopener" target="_blank">Week-7 Blog</a> , <a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-8-9/" rel="external nofollow noopener" target="_blank">Week-8, 9 Blog</a>, <a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-10/" rel="external nofollow noopener" target="_blank">Week-10 Blog</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+
+<h3 id="future-work">Future Work</h3>
+
+<p>It has been observed that the newly migrated Rescue People exercise, which uses Gazebo Harmonic, takes significantly longer to load compared to exercises based on Gazebo Classic. Also, the Docker container created from the new Docker files takes more time to close. Future work will involve identifying the cause of these delays and addressing them.</p>
+
+<p>For the Rescue People exercise migrated to Gazebo Harmonic, the reset button does not function as expected. Although the drone’s position resets to the initial state, there are issues with entering takeoff mode after a reset. This problem arises because Aerostack2’s state machine is not updated when the exercise is reset. Further details can be found in the Week-11 and Week-12 blog posts. Resolving this issue will be a key goal.</p>
+
+<p>The previous Rescue People exercise based on Gazebo Classic has an issue where the gzclient is not launched correctly after the file modifications. It is essential to ensure that older drone-based exercises remain unaffected to provide a fallback option if issues arise with the newly migrated exercise. Identifying the exact cause and resolving this issue is essential.</p>
+
+<p>Robotics-Academy features various types of exercises. The migrated drone-based exercise utilizes Aerostack2, which automatically creates topic bridges. Future work will explore migrating exercises where ROS-to-gz-transport topic bridges need to be created manually.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Participating in Google Summer of Code has been a highly valuable experience. Working with JdeRobot has significantly expanded my technical skills and understanding of open-source development. GSoC also introduced me to an amazing community at JdeRobot.</p>
+
+<p>I would like to thank Prof. José María Cañas and the JdeRobot admins for providing this opportunity. Special thanks to my mentors, Pedro Arias Pérez, Pawan Wadhwani, Miguel Fernández Cortizas, and Apoorv Garg, for their invaluable guidance and support.</p>
+<hr>
+
 
     </div>
   </article>
@@ -441,6 +675,13 @@
     
 
     
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8.0.6/dist/index.min.js" integrity="sha256-EXHg3x1K4oIWdyohPeKX2ZS++Wxt/FRPH7Nl01nat1o=" crossorigin="anonymous"></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-element-bundle.min.js" integrity="sha256-BPrwikijIybg9OQC5SYFFqhBjERYOn97tCureFgYH1E=" crossorigin="anonymous"></script>
+  
+
 
     
 
