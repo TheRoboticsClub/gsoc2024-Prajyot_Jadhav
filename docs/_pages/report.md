@@ -166,7 +166,7 @@ Over the summer, I submitted 14 pull requests, all of which have been merged. Th
         <tr>
             <td><a href="https://github.com/JdeRobot/RoboticsApplicationManager/pull/138">#138</a></td>
             <td>-</td>
-            <td>Modified and created launchers for new Gazebo Sim "visualization" and "world" types<br>
+            <td>Modified and created launchers for new Gazebo Sim "visualisation" and "world" types<br>
             Updated play, pause, and reset functions for Gazebo Sim
             </td>
             <td><a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-7/">Week-7 Blog</a> , <a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-8-9/">Week-8, 9 Blog</a>, <a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-10/">Week-10 Blog</a>
