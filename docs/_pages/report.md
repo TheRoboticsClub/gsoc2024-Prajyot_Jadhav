@@ -26,9 +26,9 @@ images:
 > **Link to GSoC Project**: [Robotics-Academy: Migration to Gazebo Harmonic](https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST) -->
 
 **Organization**: [JdeRobot](https://jderobot.github.io/)  
-**Mentors**: Pedro Arias-Perez, Pawan Wadhwani, Miguel Fernandez-Cortizas, Apoorv Garg  
+**Mentors**: Pedro Arias Pérez, Pawan Wadhwani, Miguel Fernández Cortizas, Apoorv Garg
 **Student**: Prajyot Jadhav ([GitHub](https://github.com/Arcane-01), [LinkedIn](https://www.linkedin.com/in/prajyot-jadhav-90921a241/))  
-**Link to GSoC Project**: [Robotics-Academy: Migration to Gazebo Harmonic](https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST)
+**Link to GSoC Project Page**: [Robotics-Academy: Migration to Gazebo Harmonic](https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST)
 
 Hello everyone,
 
@@ -180,7 +180,7 @@ Over the summer, I submitted 14 pull requests, all of which have been merged. Th
 
 It has been observed that the newly migrated Rescue People exercise, which uses Gazebo Harmonic, takes significantly longer to load compared to exercises based on Gazebo Classic. Also, the Docker container created from the new Docker files takes more time to close. Future work will involve identifying the cause of these delays and addressing them.
 
-For the Rescue People exercise migrated to Gazebo Harmonic, the reset button does not function as expected. Although the drone's position resets to the initial state, there are issues with entering takeoff mode after a reset. This problem arises because Aerostack2's state machine is not updated when the exercise is reset. Further details can be found in the Week-11 and Week-12 blog posts. Resolving this issue will be a key goal.
+For the Rescue People exercise migrated to Gazebo Harmonic, the reset button does not function as expected. Although the drone's position resets to the initial state, there are issues with entering takeoff mode after a reset. This problem arises because Aerostack2's state machine is not updated when the exercise is reset. Further details can be found in the <a href="https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/blog/2024/coding-period-week-11-12/">Week-11 and Week-12 blog post</a>. Resolving this issue will be a key goal.
 
 The previous Rescue People exercise based on Gazebo Classic has an issue where the gzclient is not launched correctly after the file modifications. It is essential to ensure that older drone-based exercises remain unaffected to provide a fallback option if issues arise with the newly migrated exercise. Identifying the exact cause and resolving this issue is essential.
 
