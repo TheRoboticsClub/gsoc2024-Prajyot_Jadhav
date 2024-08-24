@@ -26,13 +26,13 @@ images:
 > **Link to GSoC Project**: [Robotics-Academy: Migration to Gazebo Harmonic](https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST) -->
 
 **Organization**: [JdeRobot](https://jderobot.github.io/)  
-**Mentors**: Pedro Arias Pérez, Pawan Wadhwani, Miguel Fernández Cortizas, Apoorv Garg  
 **Student**: Prajyot Jadhav ([GitHub](https://github.com/Arcane-01), [LinkedIn](https://www.linkedin.com/in/prajyot-jadhav-90921a241/))  
+**Mentors**: Pedro Arias Pérez, Pawan Wadhwani, Miguel Fernández Cortizas, Apoorv Garg  
 **Link to GSoC Project Page**: [Robotics-Academy: Migration to Gazebo Harmonic](https://summerofcode.withgoogle.com/programs/2024/projects/CgRdpsST)
 
 Hello everyone,
 
-This summer, I had the opportunity to contribute to Robotics-Academy through the Google Summer of Code 2024 program. My project focused on upgrading the Robotics-Academy's Docker-based framework by migrating it to Gazebo Harmonic from Gazebo Classic, ensuring the platform's long-term compatibility. My project proposal can be found [here](https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/assets/pdf/JdeRobot_proposal.pdf).
+This summer, I had the opportunity to contribute to [Robotics-Academy](https://jderobot.github.io/RoboticsAcademy/) through the Google Summer of Code 2024 program. My project focused on upgrading the Robotics-Academy's Docker-based framework by migrating it to Gazebo Harmonic from Gazebo Classic, ensuring the platform's long-term compatibility. My project proposal can be found [here](https://theroboticsclub.github.io/gsoc2024-Prajyot_Jadhav/assets/pdf/JdeRobot_proposal.pdf).
 
 ### About me
 
@@ -66,7 +66,7 @@ In Robotics-Academy, each exercise is represented as a database entry, including
 
 #### Stage 4: Creating New Launchers for Gazebo Sim Exercises  
 
-For the newly added "visualisation" and "world" fields related to Gazebo Sim exercises, I developed new launchers within the Robotics Application Manager. These launchers facilitate the launch of the Gazebo Sim GUI server and the Aerostack2 launch file. The Aerostack2 launcher was updated to support Gazebo Sim and to replace PX4 with the Aerostack2 Gazebo Platform.
+For the newly added "visualisation" and "world" fields related to Gazebo Sim exercises, I developed new launchers within the Robotics Application Manager. These launchers facilitate the launch of the Gazebo Sim GUI and server, along with the Aerostack2 launch file. The Aerostack2 launcher was updated to support Gazebo Sim and to replace PX4 with the Aerostack2 Gazebo Platform.
 
 #### On GitHub
 
